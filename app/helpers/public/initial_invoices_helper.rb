@@ -1,0 +1,2 @@
+module Public::InitialInvoicesHelper
+end
