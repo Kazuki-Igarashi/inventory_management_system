@@ -24,3 +24,27 @@ Admin.create!(
     address: "栃木県"
   )
 end
+
+genres = [
+  "機械",
+  "部品",
+  "工具"
+  ]
+
+genres.each do |genre|
+  Genre.create!(
+    name: genre
+  )
+end
+
+receiving_stock = ReceivingStock.create!(
+      name: "機械1",
+      explanation: "機械の説明。",
+      genre_id: 1,
+      stock: 20,
+      purchase_price: 400,
+      conpany_name: "株式会社A社",
+      # is_sales: true
+      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+    )
+receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/cake23.jpg")), filename: "cake23.jpg")
