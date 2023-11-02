@@ -1,0 +1,2 @@
+class ReceivingStock < ApplicationRecord
+end
