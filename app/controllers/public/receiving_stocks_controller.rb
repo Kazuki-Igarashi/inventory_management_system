@@ -9,6 +9,8 @@ class Public::ReceivingStocksController < ApplicationController
   end
 
   def show
+    @receiving_stock = ReceivingStock.find(params[:id])
+    @receiving_stock_sum = ReceivingStock.where(name: @receiving_stock.name).sum(:stock)
   end
 
   def create
@@ -21,6 +23,22 @@ class Public::ReceivingStocksController < ApplicationController
       flash.now[:alert] = 'Could not register product'
       render :new
     end
+  end
+
+  def edit
+    @receiving_stock = ReceivingStock.find(params[:id])
+  end
+  
+  def update
+    @receiving_stock = ReceivingStock.find(params[:id])
+      if @receiving_stock.update(receiving_stock_params)
+       redirect_to  receiving_stock_path(@receiving_stock.id)
+       flash[:notice] = 'Product updated'
+      else
+        @genres = Genre.all
+        flash.now[:alert] = 'Could not update product'
+        render  :edit
+      end
   end
 
   def search
