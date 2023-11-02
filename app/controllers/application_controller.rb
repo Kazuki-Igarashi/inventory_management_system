@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     else
       # customerユーザー
-      # mypage_customers_path
+      about_path
     end
   end
   

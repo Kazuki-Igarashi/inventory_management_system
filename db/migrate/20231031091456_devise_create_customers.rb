@@ -12,7 +12,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :post_code
       t.string :address
       t.string :company_name
-      t.boolean :authority_flag, default: false
+      t.boolean :is_menber, default: false
       
       ## Recoverable
       t.string   :reset_password_token
