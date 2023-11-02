@@ -1,0 +1,51 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div class="col-6 offset-3">
+        <div class="sign">
+          <h3>商品新規投稿</h3>
+        </div>
+      
+      
+        <%= form_with model: @receiving_stock, method: :post do |f| %>
+      
+      
+        <div class="my-2">商品画像</div>
+        <%= f.file_field :image, accept: "image/*" %>
+        
+        <div class="my-2">商品名</div>
+        <%= f.text_field :name %>
+        
+        <div class="my-2">商品説明</div>
+        <%= f.text_area :explanation %>
+        
+        <div class="my-2">ジャンル</div>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください" %>
+       
+        <div class="my-2">税抜価格</div>
+        <%= f.number_field :purchase_price, placeholder: "500" %>円
+        
+        <div class="my-2">入庫数</div>
+        <%= f.number_field :stock, placeholder: "500" %>個
+        
+        <div class="my-2">入荷会社</div>
+        <%= f.text_area :conpany_name %>
+        
+        <div>
+          <div>販売ステータス</div>
+            <%= f.radio_button :is_sales, "true" %>
+            <%= f.label :is_sales, "販売中" %>
+            <%= f.radio_button :is_sales,  "false" %>
+            <%= f.label :is_sales, "販売停止中" %>
+        </div>
+        
+        <tr>
+          <td><%= f.submit '新規登録' %></td>
+          <td><%= link_to "戻る", receiving_stocks_path %></>
+        </tr>
+        
+      <% end %>
+      </div>
+    </div>
+  </div> 
+</div>
