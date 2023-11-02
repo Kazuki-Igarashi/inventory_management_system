@@ -58,8 +58,8 @@ Rails.application.routes.draw do
       resources :receiving_stocks
       # get 'receiving_stocks/index'
       # get 'receiving_stocks/show'
-      get 'receiving_stocks/new'
-      
+      # get 'receiving_stocks/new'
+      # get 'receiving_stocks/edit'
        resources :genres
         # get 'genres/index'
         # get 'genres/edit'

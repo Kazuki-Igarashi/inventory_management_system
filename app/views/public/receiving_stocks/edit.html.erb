@@ -1,6 +1,6 @@
-<h3>商品新規投稿</h3>
+<h3>商品編集</h3>
 
-  <%= form_with model: @receiving_stock, method: :post do |f| %>
+  <%= form_with model: @receiving_stock, method: :PATCH do |f| %>
 
     <div class="my-2">商品画像</div>
     <%= f.file_field :image, accept: "image/*" %>
@@ -31,9 +31,9 @@
         <%= f.label :is_sales, "販売停止中" %>
     </div>
     
-    <tr>
-      <td><%= f.submit '新規登録' %></td>
-      <td><%= link_to "戻る", receiving_stocks_path %></>
-    </tr>
-  <% end %>
-
+  <tr>
+    <td><%= f.submit '編集' %></td>
+    <td><%= link_to "一覧ページへ戻る", receiving_stocks_path %></td>
+  </tr>
+  
+<% end %>

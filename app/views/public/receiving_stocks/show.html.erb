@@ -1,2 +1,50 @@
-<h1>ReceivingStocks#show</h1>
-<p>Find me in app/views/receiving_stocks/show.html.erb</p>
+
+<div class='container'>
+<h1>商品詳細</h1>
+<div class='row'>
+<div class='col-md-4'>
+ <%= image_tag @receiving_stock.image, size: "200x200" %>
+</div>
+
+<div class='col-md-6'>
+<table class="table">
+  <tr>
+  <td>商品名</td>
+  <td><%= @receiving_stock.name %></td>
+  </tr>
+  <tr>
+  <td>商品説明</td>
+  <td><%= @receiving_stock.explanation %></td>
+  </tr>
+  <tr>
+  <td>ジャンル</td>
+  <td><%= @receiving_stock.genre.name %></td>
+  <tr>
+  <td>税込価格（税抜価格）</td>
+  <td><%= @receiving_stock.purchase_price %>円</td>
+  </tr>
+  <td>販売ステータス</td>
+  <td>
+    <% if @receiving_stock.is_sales == true %>
+      <div>販売中</div>
+    <% else %>
+      <div>販売停止中</div>
+    <% end %>
+  </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @receiving_stock.name %>  :合計<%= @receiving_stock_sum %>個
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class='text-center'>
+<tr>
+    <td><%= link_to "編集", edit_receiving_stock_path %></td>
+    <td><%= link_to "一覧ページへ戻る", receiving_stocks_path %></td>
+  </tr>
+</div>
+
