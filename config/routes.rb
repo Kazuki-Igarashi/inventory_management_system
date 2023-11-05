@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
 
  
+
   namespace :admin do
     resources :orders
     # get 'orders/index'
@@ -35,6 +36,11 @@ Rails.application.routes.draw do
       # get 'orders/index'
       # get 'orders/show'
       
+      resources :addresses
+        # get 'addresses/index'
+        # get 'addresses/edit'
+      
+      
       # public
       get 'issues/show'
       # public/
@@ -45,7 +51,21 @@ Rails.application.routes.draw do
       # get 'receiving/search'
       
       # public
-      resources :contractors
+      resources :contractors, only: [:update] do
+      collection do                                           # resourcesで定義されるアクション以外を追加する(URIにidを挟まない場合はcollection)
+         # quitのルーティング
+        get "quit"                                           
+        # mypageのルーティング
+        get "mypage" => 'customers#show'                      
+        get "edit" => "customers#edit"
+      end
+      member do
+        # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
+        # 論理削除用のルーティング
+        patch "withdraw" => "customers#withdraw"              
+      end
+    end
+        
       # get 'contractors/show'
       # get 'contractors/edit'
       # get 'contractors/quit'
