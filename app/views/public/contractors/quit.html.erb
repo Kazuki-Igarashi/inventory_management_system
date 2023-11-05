@@ -1,2 +1,14 @@
-<h1>Public::Contractors#quit</h1>
-<p>Find me in app/views/public/contractors/quit.html.erb</p>
+<div style="width:100vw; height:80vh;">
+
+  <h2 class="mb-3">本当に退会しますか？</h2>
+
+  <p class="mb-0">退会すると、会員登録情報や</p>
+  <p class="mb-0">これまでの購入履歴が閲覧できなくなります。</p>
+  <p class="mb-0">退会する場合は、「退会する」をクリックしてください。</p>
+
+  <div>
+    <%= link_to "退会しない",  mypage_contractors_path(@customer) %>
+    <%= link_to "退会する", withdraw_contractor_path(@customer), method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger m-3" %>
+  </div>
+
+</div>
