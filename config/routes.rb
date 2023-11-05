@@ -56,13 +56,13 @@ Rails.application.routes.draw do
          # quitのルーティング
         get "quit"                                           
         # mypageのルーティング
-        get "mypage" => 'customers#show'                      
-        get "edit" => "customers#edit"
+        get "mypage" => 'contractors#show'                      
+        get "edit" => "contractors#edit"
       end
       member do
         # resourcesで定義されるアクション以外を追加する(URIにidを挟む場合はmember)
         # 論理削除用のルーティング
-        patch "withdraw" => "customers#withdraw"              
+        patch "withdraw" => "contractors#withdraw"              
       end
     end
         

@@ -1,11 +1,2 @@
-1 サインインする時にサインインできない。(admin、customer両方）
-  エラー文
-  ActionController::UnknownFormat in Public::SessionsController#create
-
-2 サインアップ時　ルーティングエラーが出る
-
-3 投稿時にネームエラーが出る。
-
-4 seedファイル作成時値が0になる
-
-5 ジャンル登録するも反映されるが値が0になる
+1 登録先index記述エラー
+  NoMethodError in Public::AddressesController#index
