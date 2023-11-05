@@ -44,6 +44,13 @@ class Public::ReceivingStocksController < ApplicationController
   def search
   end
   
+  # 在庫数を減らすメソッド
+  def reduce_stock(stock)
+    if @receiving_stock >= stock
+      @receiving_stock -= stock
+    end
+  end
+  
   private
 
   def receiving_stock_params

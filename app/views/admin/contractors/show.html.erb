@@ -1,2 +1,79 @@
-<h1>Admin::Contractors#show</h1>
-<p>Find me in app/views/admin/contractors/show.html.erb</p>
+<div class="container py-5">
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3><%= @customer.name %>さんの会員詳細</h3>
+  </div>
+  
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table table-list">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+    
+        <tr>
+          <td>氏名</td>
+          <td><%= (@customer.name) %></td>
+        </tr>
+    
+        <tr>
+          <td>フリガナ</td>
+          <td><%= (@customer.name_kana) %></td>
+        </tr>
+    
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.post_code %></td>
+        </tr>
+    
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+    
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+    
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        
+        <tr>
+          <td>会社名</td>
+          <td><%= (@customer.company_name) %></td>
+        </tr>
+    
+        <tr>
+          <td>会社名カナ</td>
+          <td><%= (@customer.company_name_kana) %></td>
+        </tr>
+    
+    
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @customer.is_menber %>
+              <b class="text-muted">退会</b>
+            <% else %>
+              <b class="text-success">有効</b>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-3 offset-2">
+      <%= link_to "編集する", edit_admin_contractor_path(@customer) %>
+    </div>
+    <div class="col-3">
+      <%= link_to "注文履歴一覧を見る", admin_root_path %>
+    </div>
+  </div>
+
+</div>
