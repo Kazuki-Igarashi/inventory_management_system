@@ -44,6 +44,12 @@ class Public::ReceivingStocksController < ApplicationController
   def search
   end
   
+  def reduce_stock(amount)
+    if @receiving_stock >= amount
+      @receiving_stock -= amount
+    end
+  end
+  
   private
 
   def receiving_stock_params
