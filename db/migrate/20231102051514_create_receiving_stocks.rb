@@ -9,7 +9,6 @@ class CreateReceivingStocks < ActiveRecord::Migration[6.1]
       t.integer :purchase_price
       t.text :explanation
       t.integer :stock
-      t.
       
       t.timestamps
     end
