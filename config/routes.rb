@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
  
 
+  
   namespace :admin do
     resources :orders
     # get 'orders/index'
@@ -23,12 +24,22 @@ Rails.application.routes.draw do
   
   scope module: :public do
      
+  resources :users do
+    collection do
+      get 'search'
+    end
+  end
+     
     root :to => "homes#top"
     #home/
     get 'home/about' => 'homes#about', as: 'about'
     
     get 'initial_invoice/show' => 'initial_invoices#show', as: 'show'
-  
+    
+    delete 'shipping_informations/destroy_all' => 'shipping_informations#destroy_all'
+    resources :shipping_informations
+     
+    # get 'shipping_informations/index'
       resources :orders
       # get 'orders/new'
       # get 'orders/confirm'
@@ -42,7 +53,11 @@ Rails.application.routes.draw do
       
       
       # public
-      get 'issues/show'
+      resources :issues
+      
+      get 'orders/thanks' => 'orders#thanks'
+      post 'orders/confirm' => 'orders#confirm'
+      # get 'issues/show'
       # public/
       # resources :receiving
       # get 'receiving/_stocks'

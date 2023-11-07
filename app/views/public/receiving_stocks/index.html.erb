@@ -1,11 +1,15 @@
 <div class="container ">
   <div class="row mb-3">
-    <h3>商品一覧</h3>  
+    <h3>入庫商品一覧</h3>  
     <%= link_to "新規登録", new_receiving_stock_path %>
-    <%= link_to "ジャンル追加",  genres_path %>
+    |<%= link_to "ジャンル追加",  genres_path %>
+    |<%= link_to '新しい順',  receiving_stocks_path(latest: "true") %>
+    |<%= link_to '古い順',  receiving_stocks_path(old: "true") %>
+    |<%= link_to '名前順',  receiving_stocks_path(name: "true") %>
   </div>
-
   <table class="table  table-hover">
+      
+  
       <tr>
         <th>商品ID</th>
         <th>製品画像</th>
@@ -45,4 +49,5 @@
         </tr>
         <% end %>
   </table>
+
 </div>
