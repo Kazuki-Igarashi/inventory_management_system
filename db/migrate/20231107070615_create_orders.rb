@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :postage
       t.integer :total_payment
-      
+      t.string :sales_company_name
       
       t.timestamps
     end
