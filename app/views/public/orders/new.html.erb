@@ -1,2 +1,59 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+  <h3 class="title my-4">注文情報入力</h2>
+      <%= form_with model: @order, url:orders_confirm_path, method: :post do |f| %>
+        <h4>支払方法</h4>
+
+      <div>
+        <h4>お届け先</h4>
+        <div>
+          <p >
+            <%= f.radio_button :address_type, Order.address_types.key(0), checked: true %>
+            <%= f.label :address_type, "会社の住所" %>
+          </p>
+          
+            〒<%= current_customer.post_code + "　" + current_customer.address  %>
+          </p>
+          <P>
+            <%= current_customer.name%>
+          </P>
+        </div>
+
+        <div class="registered_address">
+          <p class="ml-3 mb-0">
+            <%= f.radio_button :address_type, Order.address_types.key(1) %>
+            <%= f.label :address_type, "登録済み住所から選択" %>
+          </p>
+          <p class=" ml-5"><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :post_code_in_address) %></p>
+        </div>
+
+        <div>
+          <p>
+            <%= f.radio_button :address_type, Order.address_types.key(2) %>
+            <%= f.label :address_type, "お届け先企業" %>
+          </p>
+          <table>
+            <tr>
+              <td>郵便番号(ハイフンなし)</td>
+              <td><%= f.text_field :post_code, placeholder: "0000000" %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", :size=>"60" %></td>
+            </tr>
+             <tr>
+              <td>宛名</td>
+              <td><%= f.text_field :name, placeholder: "令和道子" %></td>
+            </tr>
+            <tr>
+              <td>企業名</td>
+              <td><%= f.text_field :company_name, placeholder: "株式会社B" %></td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div>
+             <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+        </div>
+
+      </div>
+      <% end %>
