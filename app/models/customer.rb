@@ -8,5 +8,6 @@ class Customer < ApplicationRecord
   # has_many :items, through: :cart_items (← customerでitemの情報を使いたいとき)
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
-  
+  has_many :issues, dependent: :destroy
+  has_many :shipping_informations, dependent: :destroy
 end
