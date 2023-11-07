@@ -1,7 +1,18 @@
 class Public::ReceivingStocksController < ApplicationController
+  
+  
   def index
-    @receiving_stocks = ReceivingStock.all
-    # @items = Item.all
+    # @receiving_stocks = ReceivingStock.all
+    #ソート機能 
+     if params[:latest]
+        @receiving_stocks = ReceivingStock.latest
+     elsif params[:old]
+       @receiving_stocks = ReceivingStock.old
+     elsif params[:name]
+       @receiving_stocks = ReceivingStock.order_name
+     else
+       @receiving_stocks = ReceivingStock.all
+     end
   end
 
   def new

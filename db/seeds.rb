@@ -42,10 +42,34 @@ receiving_stock = ReceivingStock.create!(
       name: "機械1",
       explanation: "機械の説明。",
       genre_id: 1,
-      stock: 20,
+      stock: 500,
       purchase_price: 400,
       conpany_name: "株式会社A社",
       # is_sales: true
       # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
     )
 receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/cake23.jpg")), filename: "cake23.jpg")
+
+receiving_stock = ReceivingStock.create!(
+      name: "機械2",
+      explanation: "機械の説明。",
+      genre_id: 1,
+      stock: 100,
+      purchase_price: 4000,
+      conpany_name: "株式会社B社",
+      # is_sales: true
+      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+    )
+receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/cake23.jpg")), filename: "cake22.jpg")
+
+10.times do |n|
+    Order.create!(
+      customer_id: 1,
+      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+      post_code: "1234567",
+      name: "機械2",
+      postage: "800",
+      total_payment: "#{500 + (n * 500) +800}",
+      sales_company_name: "株式会社B社"
+    )
+end

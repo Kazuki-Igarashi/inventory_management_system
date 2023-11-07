@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_02_061610) do
+ActiveRecord::Schema.define(version: 2023_11_07_070615) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -105,11 +105,24 @@ ActiveRecord::Schema.define(version: 2023_11_02_061610) do
   end
 
   create_table "issues", force: :cascade do |t|
-    t.bigint "receiving_stocks"
+    t.bigint "receiving_stock_id", null: false
+    t.bigint "customer_id", null: false
     t.string "name"
     t.integer "selling_price"
     t.text "explanation"
     t.integer "stock"
+    t.string "sales_company_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.string "post_code"
+    t.string "address"
+    t.string "name"
+    t.integer "postage"
+    t.integer "total_payment"
     t.string "sales_company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -123,6 +136,14 @@ ActiveRecord::Schema.define(version: 2023_11_02_061610) do
     t.integer "purchase_price"
     t.text "explanation"
     t.integer "stock"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipping_informations", force: :cascade do |t|
+    t.integer "issue_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,15 +1,11 @@
 <div class="container ">
   <div class="row mb-3">
-    <h3>入庫商品一覧</h3>  
-    <%= link_to "新規登録", new_receiving_stock_path %>
-    |<%= link_to "ジャンル追加",  genres_path %>
-    |<%= link_to '新しい順',  receiving_stocks_path(latest: "true") %>
-    |<%= link_to '古い順',  receiving_stocks_path(old: "true") %>
-    |<%= link_to '名前順',  receiving_stocks_path(name: "true") %>
+    <h3>出荷商品一覧</h3>  
   </div>
+     <%= link_to '新しい順',   issues_path(latest: "true") %>
+    |<%= link_to '古い順',   issues_path(old: "true") %>
+    |<%= link_to '名前順',   issues_path(star_count: "true") %>
   <table class="table  table-hover">
-      
-  
       <tr>
         <th>商品ID</th>
         <th>製品画像</th>
@@ -25,12 +21,12 @@
         <tr>
           <td><%= receiving_stock.id %></td>  
           <td>
-            <%=link_to receiving_stock_path(receiving_stock.id) do %>
+            <%=link_to issue_path(receiving_stock.id) do %>
               <%= image_tag receiving_stock.image, size: "100x100" %>
             <% end %>
           </td>
           <td>
-            <%=link_to receiving_stock_path(receiving_stock.id) do %>
+            <%=link_to issue_path(receiving_stock.id) do %>
               <%= receiving_stock.name %>
             <% end %>
           </td>
@@ -49,5 +45,4 @@
         </tr>
         <% end %>
   </table>
-
 </div>

@@ -1,2 +1,56 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+
+  <h2 class="my-4">出荷情報確認画面</h2>
+
+  <div class="row">
+    <div class="col-7">
+      <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
+        出荷情報
+      </label>
+      <table class="table">
+        <tr><th>出荷日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+        <tr><th>配送先</th><td><%= "〒" + @order.post_code + "  " + @order.address + "  " + @order.name %></td></tr>>
+      </table>
+    </div>
+    <div class="col-3">
+       <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
+        請求情報
+      </label>
+      <table class="table">
+        <tr><th>商品合計</th><td><%= @order.total_payment - @postage %></td></tr>
+        <tr><th>配送先</th><td><%= @postage %></td></tr>
+        <tr><th>ご請求額</th><td><%= @order.total_payment %></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-8">
+      <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
+        出荷内容
+      </label>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% shipping_informations.each do |shipping_information| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.add_tax_cost %></td>
+            <td><%= order_detail.quantity %></td>
+            <td><%= order_detail.tax_price %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>

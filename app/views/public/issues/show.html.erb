@@ -1,2 +1,29 @@
-<h1>Public::Issues#show</h1>
-<p>Find me in app/views/public/issues/show.html.erb</p>
+
+<div>
+  <h1>商品詳細</h1>
+  
+    <%= form_with model: @issue, method: :post, local: true do |f| %>
+      <%= image_tag @receiving_stock.image, size: "200x200" %>
+      
+      <div><%= @receiving_stock.name %></div>
+      <%= f.hidden_field :receiving_stock_id %>
+      <%= @receiving_stock.explanation %>
+      <div>入庫価格</div>
+      <%= @receiving_stock.purchase_price %>円
+      <div class="my-2">出庫価格</div>
+      <%= f.number_field :selling_price, placeholder: "500" %>円
+      <div>在庫数</div>
+      <%= @receiving_stock.name %>  :合計<%= @receiving_stock_sum %>個
+      <div class="my-2">出庫数</div>
+      <%= f.number_field :stock, placeholder:  "個数入力" %>個
+      <%#= f.hidden_field :item_id, :value => @receiving_stock.id %>
+      
+      <div class="my-2">出荷先企業</div>
+      <%= f.text_area :sales_company_name %>
+      
+      <%= f.submit '出庫する', class:"btn btn-success btn-sm"%>
+    <% end %>
+</div>
+<div class='text-center'>
+    <%= link_to "一覧ページへ戻る", receiving_stocks_path %>
+</div>
