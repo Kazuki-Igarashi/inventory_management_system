@@ -1,0 +1,48 @@
+<div class="container ">
+  <div class="row mb-3">
+    <h3>出荷商品一覧</h3>  
+  </div>
+     <%= link_to '新しい順',   issues_path(latest: "true") %>
+    |<%= link_to '古い順',   issues_path(old: "true") %>
+    |<%= link_to '名前順',   issues_path(star_count: "true") %>
+  <table class="table  table-hover">
+      <tr>
+        <th>商品ID</th>
+        <th>製品画像</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>在庫数</th>
+        <th>仕入れ会社</th>
+        <th>仕入れ日</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+      <% @receiving_stocks.each do |receiving_stock| %>
+        <tr>
+          <td><%= receiving_stock.id %></td>  
+          <td>
+            <%=link_to issue_path(receiving_stock.id) do %>
+              <%= image_tag receiving_stock.image, size: "100x100" %>
+            <% end %>
+          </td>
+          <td>
+            <%=link_to issue_path(receiving_stock.id) do %>
+              <%= receiving_stock.name %>
+            <% end %>
+          </td>
+          <td>¥<%= receiving_stock.purchase_price.to_s(:delimited) %></td>
+          <td><%= receiving_stock.stock.to_s(:delimited) %>個</td>
+          <td><%= receiving_stock.conpany_name %></td>
+          <td><%= receiving_stock.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= receiving_stock.genre.name %></td>
+          <td>
+            <% if receiving_stock.is_sales == true %>
+              <div>販売中</div>
+            <% else %>
+              <div>販売停止中</div>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+  </table>
+</div>

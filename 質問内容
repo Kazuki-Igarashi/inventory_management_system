@@ -1,2 +1,10 @@
-1 登録先index記述エラー
-  NoMethodError in Public::AddressesController#index
+1カートに商品が追加されない
+
+2出荷情報入力画面
+出荷情報確認画面
+出荷完了画面
+出荷確定処理
+出荷履歴画面
+出荷履歴詳細画面
+
+どうやって記述して良いかわからない
