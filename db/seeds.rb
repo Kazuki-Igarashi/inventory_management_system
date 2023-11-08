@@ -62,14 +62,34 @@ receiving_stock = ReceivingStock.create!(
     )
 receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/cake23.jpg")), filename: "cake22.jpg")
 
-10.times do |n|
-    Order.create!(
-      customer_id: 1,
-      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+ 2.times do |n|
+    Address.create!(
+      name: "test#{n + 1}",
       post_code: "1234567",
-      name: "機械2",
-      postage: "800",
-      total_payment: "#{500 + (n * 500) +800}",
-      sales_company_name: "株式会社B社"
+      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+      company_name: "株式会社A",
+      customer_id: n+1
     )
-end
+  end
+
+# 10.times do |n|
+#     Order.create!(
+#       customer_id: 1,
+#       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+#       post_code: "1234567",
+#       name: "機械2",
+#       postage: "800",
+#       amount: 2,
+#       total_payment: "#{500 + (n * 500) +800}",
+#       sales_company_name: "株式会社B社"
+#     )
+# end
+
+# 10.times do |n|
+#     OrderDetail.create!(
+#       receiving_stock_id: n + 1,
+#       order_id: n + 1,
+#       amount: n + 3,
+#       tax_price: "#{500 + (n * 500)}"
+#     )
+#   end

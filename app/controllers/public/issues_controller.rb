@@ -50,6 +50,20 @@ class Public::IssuesController < ApplicationController
       end
   end
 
+  def destroy
+    issue = Issue.find(params[:id])
+    issue.destroy
+    redirect_to shipping_informations_path
+    flash[:notice] = "Cart item was successfully destroyed."
+  end
+  
+  def destroy_all
+    issues = current_customer.issues.all
+    issues.destroy_all
+    flash[:notice] =  "Cart item was successfully all destroyed"
+    redirect_back fallback_location: root_path
+  end
+
   def search
   end
   

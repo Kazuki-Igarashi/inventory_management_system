@@ -24,5 +24,8 @@
       <%= link_to "削除する", address_path(address.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"%></td>
     </tr>
     <% end %>
+    <tr>
+      <td><%= link_to "情報入力に戻る",  new_order_path %></td>
+    </tr>
   </tbody>
 </table>
