@@ -1,12 +1,13 @@
 class Public::OrdersController < ApplicationController
 before_action :authenticate_customer!
-
+  
   def new
     @order = Order.new
+    @addresses = Address.all
   end
 
   def confirm
-    @shipping_informations = ShippingInformation.where(customer_id: current_customer.id)
+    @cart_items = CartItem.where(customer_id: current_customer.id)
     @sub_total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @postage = 800
     @total = @sub_total + @postage
@@ -39,23 +40,29 @@ before_action :authenticate_customer!
 
     if @order.save
 
-      @shipping_informations = ShippingInformations.where(customer_id: current_customer.id)
-      @sub_total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+      @issues = Issue.where(customer_id: current_customer.id)
+      # @sub_total = @cart_items.inject(0) { |sum, issue| sum + issue.subtotal }
       @postage = 800
-      @total = @sub_total + @postage
+      # @total = total += issue.selling_price * issue.stock + @postage
 
-      @shipping_informations.each do |shipping_information|
-
+      @issues.each do |issue|
+        order_detail = OrderDetail.new
+        order_detail.issue_id = issue_id
+        order_detail.order_id = @order.id
+        order_detail.quantity = issue.stock
+        order_detail.tax_price = @total
+        # order_detail.production_status = 0
+        order_detail.save
       end
 
-      @shipping_informations.destroy_all
+      @issues.destroy_all
 
       redirect_to orders_thanks_path
 
     end
   end
 
-  def completed
+  def thanks
   end
 
   def index
@@ -71,6 +78,7 @@ before_action :authenticate_customer!
   private
 
   def order_params
-    params.require(:order).permit(:name, :address, :tax_price, :post_code, :total_payment, :shipping_cost)
+    params.require(:order).permit(:name, :address, :tax_price, :payment_method,:address,:post_code, :total_payment, :shipping_cost, :status)
   end
+
 end
