@@ -6,6 +6,11 @@ class Issue < ApplicationRecord
   
   before_validation :stocks_update
   
+   # 消費税
+  def add_tax_cost
+    (cost * 1.10).round
+  end
+  
   private
   
   def stocks_update
