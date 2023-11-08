@@ -53,6 +53,7 @@ Rails.application.routes.draw do
       
       
       # public
+       delete 'issues/destroy_all' => 'issues#destroy_all'
       resources :issues
       
       get 'orders/thanks' => 'orders#thanks'
