@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-before_action :authenticate_customer!
+# before_action :authenticate_customer!
   
   def new
     @order = Order.new
@@ -10,7 +10,6 @@ before_action :authenticate_customer!
   def confirm
     @issues = Issue.where(customer_id: current_customer.id)
     @sub_total = @issues.inject(0) { |sum, issue | sum += (issue.add_tax_cost * issue.stock) }
-    # @sub_total = 
     @postage = 800
     @total = @sub_total + @postage
 
@@ -71,7 +70,9 @@ before_action :authenticate_customer!
 
   def show
     @order = Order.find(params[:id])
+    # @sub_total = order_detail.total_amount * amount
     @postage = 800
+    # @total = @sub_total + @postage
   end
 
 
