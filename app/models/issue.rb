@@ -3,14 +3,18 @@ class Issue < ApplicationRecord
   has_one_attached :image
   belongs_to :receiving_stock
   belongs_to :customer
+  # belongs_to :order
   
   before_validation :stocks_update
   
    # 消費税
   def add_tax_cost
-    (cost * 1.10).round
+    (selling_price * 1.10).round
   end
-  
+  # 小計
+  def subtotal
+    self.add_tax_cost * stock
+  end
   private
   
   def stocks_update

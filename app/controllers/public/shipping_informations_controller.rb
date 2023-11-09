@@ -4,7 +4,8 @@ class Public::ShippingInformationsController < ApplicationController
   def index
     @issues = current_customer.issues
     @shipping_informations = ShippingInformation.all
-    # @total = @issue.inject(0) { |sum, issue| sum + issue.subtotal }
+    # @total = @issues.inject(0) { |sum, issue| sum + issue.subtotal }
+    # @total = issue.selling_price * issue.stock
   end
   
   def create

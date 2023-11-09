@@ -1,0 +1,11 @@
+<%= form_with model: company, url: companys_path, method: :post do |f| %>
+
+<table>
+    <tr>
+      <td> <%= f.label :company_name, "会社名" %></td><td><%= f.text_field :company_name, placeholder: "株式会社A" %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit '新規登録' %></td>
+    </tr>
+</table>
+<% end %>

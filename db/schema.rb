@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_08_103750) do
+ActiveRecord::Schema.define(version: 2023_11_09_135106) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(version: 2023_11_08_103750) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "contractors", force: :cascade do |t|
@@ -118,7 +124,11 @@ ActiveRecord::Schema.define(version: 2023_11_08_103750) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id", null: false
-    t.integer "issue_id", null: false
+    t.string "issue_name"
+    t.integer "stock"
+    t.string "sales_company_name"
+    t.integer "price"
+    t.integer "total_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -126,7 +136,6 @@ ActiveRecord::Schema.define(version: 2023_11_08_103750) do
   create_table "orders", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
-    t.bigint "issue_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,20 +1,21 @@
 class Public::OrdersController < ApplicationController
-before_action :authenticate_customer!
+# before_action :authenticate_customer!
   
   def new
     @order = Order.new
     @addresses = Address.all
+    @issues = current_customer.issues
   end
 
   def confirm
-    @cart_items = CartItem.where(customer_id: current_customer.id)
-    @sub_total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @issues = Issue.where(customer_id: current_customer.id)
+    @sub_total = @issues.inject(0) { |sum, issue | sum += (issue.add_tax_cost * issue.stock) }
     @postage = 800
     @total = @sub_total + @postage
 
     @order = Order.new(order_params)
 
-    @order.payment_method = params[:order][:payment_method]
+    # @order.payment_method = params[:order][:payment_method]
 
     @address_type = params[:order][:address_type]
     case @address_type
@@ -35,34 +36,32 @@ before_action :authenticate_customer!
   end
 
   def create
-    @order = current_customer.orders.new(order_params)
-    @order.customer_id = current_customer.id
-
-    if @order.save
-
-      @issues = Issue.where(customer_id: current_customer.id)
+    order = current_customer.orders.new(order_params)
+      # order.issue_id = issue.id
+  
+    if order.save!
+      issues = Issue.where(customer_id: current_customer.id)
       # @sub_total = @cart_items.inject(0) { |sum, issue| sum + issue.subtotal }
-      @postage = 800
+      # @postage = 800
       # @total = total += issue.selling_price * issue.stock + @postage
-
-      @issues.each do |issue|
-        order_detail = OrderDetail.new
-        order_detail.issue_id = issue_id
-        order_detail.order_id = @order.id
-        order_detail.quantity = issue.stock
-        order_detail.tax_price = @total
-        # order_detail.production_status = 0
+  
+      issues.each do |issue|
+        
+        order_detail = order.order_details.new
+        order_detail.issue_name = issue.receiving_stock.name
+        order_detail.stock = issue.stock
+        order_detail.sales_company_name = issue.sales_company_name
+        order_detail.price = issue.add_tax_cost
+        order_detail.total_amount = issue.add_tax_cost * issue.stock
         order_detail.save
       end
-
-      @issues.destroy_all
-
-      redirect_to orders_thanks_path
-
+  
+      issues.destroy_all
+      redirect_to completed_orders_path
     end
   end
 
-  def thanks
+  def completed
   end
 
   def index
@@ -71,14 +70,16 @@ before_action :authenticate_customer!
 
   def show
     @order = Order.find(params[:id])
+    # @sub_total = order_detail.total_amount * amount
     @postage = 800
+    # @total = @sub_total + @postage
   end
 
 
   private
 
   def order_params
-    params.require(:order).permit(:name, :address, :tax_price, :payment_method,:address,:post_code, :total_payment, :shipping_cost, :status)
+    params.require(:order).permit(:address_id)
   end
 
 end

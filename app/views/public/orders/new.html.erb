@@ -1,14 +1,51 @@
-<%= form_with model: @order, local: true do |f| %>
-<tr> 
-  <td><%= f.radio_button :select_address, 1 %>登録済み住所</td>
-  <td><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :post_code_in_address) %></td>
-  <%= f.submit "出荷先確定" %>
-</tr>
-<div>
-  <%= link_to "新規出荷先登録", addresses_path %>
-</div>  
+<%= form_with model: @order, url: confirm_orders_path(@order), local: true do |f| %>
+  <tr> 
+    <td><%#= f.radio_button :select_address, 1 %>取引先住所</td></br>
+    <td><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :post_code_in_address) %></td>
+    <%= link_to "出荷先確定" %>
+  </tr>
+  <div>
+    <%= link_to "新規出荷先登録", addresses_path %>
+  </div>  
+  <!--<div>出荷先住所</div>-->
+  <!--<div>顧客名</div>-->
+  <div>会社名</div>
+  
+
+<table>
+  <td>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></th>
+  </td>
+  <% total = 0 %>
+    <% @issues.each do |issue| %>
+    <tr>
+      <td>
+        <%= image_tag issue.receiving_stock.image, size: "60x60" %>
+        <strong><%= issue.receiving_stock.name %></strong>
+      </td>
+      <td>¥<%= issue.add_tax_cost %></td>
+      <td>
+        <%#= form_with model: issue do |f| %>
+          <%= issue.stock %>個
+          <%#= f.submit "変更", class: "btn btn-success" %>
+        <%# end %>
+      </td>
+      <td>¥<%= issue.subtotal.to_s(:delimited) %></td>
+      <% total += issue.add_tax_cost * issue.stock %>
+    </tr>
+  <% end %>
+
+  <tr>
+    <th>合計金額</th>
+    <th>¥<%= total.to_s(:delimited) %></th>
+  </tr>
+</table>
 
   <div>
-  <%= f.submit "確認画面へ進む",class: "btn btn-info text-center" %>
+  <%= f.submit "確認画面へ進む" %>
   </div>
 <% end %>

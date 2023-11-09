@@ -9,7 +9,7 @@
       </label>
       <table class="table">
         <tr><th>出荷日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
-        <tr><th>配送先</th><td><%= "〒" + @order.post_code + "  " + @order.address + "  " + @order.name %></td></tr>>
+        <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>>
       </table>
     </div>
     <div class="col-3">
@@ -17,9 +17,10 @@
         請求情報
       </label>
       <table class="table">
-        <tr><th>商品合計</th><td><%= @order.total_payment - @postage %></td></tr>
-        <tr><th>配送先</th><td><%= @postage %></td></tr>
-        <tr><th>ご請求額</th><td><%= @order.total_payment %></td></tr>
+        <!--<tr><th>商品合計</th><td><%#= @order.total_payment - @postage %></td></tr>-->
+        <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>
+        <tr><th>送料</th><td><%= @postage %>円</td></tr>
+        <tr><th>ご請求額</th><td><%#= @order.total_payment %></td></tr>
       </table>
     </div>
   </div>
@@ -32,25 +33,28 @@
       <table class="table">
         <thead>
           <tr>
-            <th>商品</th>
+            <th>商品名  </th>
             <th>単価(税込)</th>
             <th>個数</th>
             <th>小計</th>
+            <th>販売先企業</th>
           </tr>
         </thead>
         <tbody>
-        <% @order.each do |order| %>
+         
+        <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.add_tax_cost %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= order_detail.tax_price %></td>
+            <td><%= order_detail.issue_name %></td>
+            <td><%= order_detail.price.to_s(:delimited) %>円</td>
+            <td><%= order_detail.stock %></td>
+            <td><%= order_detail.total_amount.to_s(:delimited) %>円</td>
+            <td><%= order_detail.sales_company_name %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
     </div>
   </div>
-
+<div><%= link_to "一覧へ戻る", orders_path, class: "btn btn-info" %></div>
 
 </div>
