@@ -40,12 +40,19 @@ Rails.application.routes.draw do
     resources :shipping_informations
      
     # get 'shipping_informations/index'
-      resources :orders
+      resources :orders do
+        collection do
+          post :confirm
+          get :completed
+        end
+      end
       # get 'orders/new'
       # get 'orders/confirm'
       # get 'orders/completed'
       # get 'orders/index'
       # get 'orders/show'
+      # get 'orders/completed' => 'orders#completed'
+      # post 'orders/confirm' => 'orders#confirm'
       
       resources :addresses
         # get 'addresses/index'
@@ -56,8 +63,7 @@ Rails.application.routes.draw do
        delete 'issues/destroy_all' => 'issues#destroy_all'
       resources :issues
       
-      get 'orders/thanks' => 'orders#thanks'
-      post 'orders/confirm' => 'orders#confirm'
+      
       # get 'issues/show'
       # public/
       # resources :receiving
