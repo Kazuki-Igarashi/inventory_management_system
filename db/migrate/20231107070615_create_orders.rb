@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       
       t.bigint :customer_id
       t.bigint :address_id
-      t.bigint :issue_id
+      # t.bigint :issue_id
       # t.string :post_code
       # t.string :address
       # t.string :name

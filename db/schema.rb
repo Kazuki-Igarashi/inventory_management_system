@@ -118,7 +118,11 @@ ActiveRecord::Schema.define(version: 2023_11_08_103750) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id", null: false
-    t.integer "issue_id", null: false
+    t.string "issue_name"
+    t.integer "stock"
+    t.string "sales_company_name"
+    t.integer "price"
+    t.integer "total_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -126,7 +130,6 @@ ActiveRecord::Schema.define(version: 2023_11_08_103750) do
   create_table "orders", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "address_id"
-    t.bigint "issue_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
