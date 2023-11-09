@@ -17,8 +17,9 @@
         請求情報
       </label>
       <table class="table">
-        <tr><th>商品合計</th><td><%#= @order.total_payment - @postage %></td></tr>
-        <tr><th>配送先</th><td><%= @postage %></td></tr>
+        <!--<tr><th>商品合計</th><td><%#= @order.total_payment - @postage %></td></tr>-->
+        <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>
+        <tr><th>送料</th><td><%= @postage %>円</td></tr>
         <tr><th>ご請求額</th><td><%#= @order.total_payment %></td></tr>
       </table>
     </div>
@@ -44,9 +45,9 @@
         <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.issue_name %></td>
-            <td><%= order_detail.price %></td>
+            <td><%= order_detail.price.to_s(:delimited) %>円</td>
             <td><%= order_detail.stock %></td>
-            <td><%= order_detail.total_amount %></td>
+            <td><%= order_detail.total_amount.to_s(:delimited) %>円</td>
             <td><%= order_detail.sales_company_name %></td>
           </tr>
         <% end %>
@@ -54,6 +55,6 @@
       </table>
     </div>
   </div>
-
+<div><%= link_to "一覧へ戻る", orders_path, class: "btn btn-info" %></div>
 
 </div>

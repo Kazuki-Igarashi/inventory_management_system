@@ -38,6 +38,20 @@ genres.each do |genre|
   )
 end
 
+companys = [
+  "株式会社A",
+  "株式会社B",
+  "株式会社C",
+  "株式会社D",
+  "株式会社E"
+  ]
+
+companys.each do |company|
+  Company.create!(
+    name: company
+  )
+end
+
 receiving_stock = ReceivingStock.create!(
       name: "機械1",
       explanation: "機械の説明。",

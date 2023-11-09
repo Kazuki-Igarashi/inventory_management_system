@@ -20,8 +20,11 @@
           <%= link_to "会員一覧", admin_contractors_path, class: "btn btn-secondary" %>
         </li>
         <li class="nav-item p-2">
-          <%= link_to "注文一覧", admin_root_path, class: "btn btn-info" %>
-          </li>
+          <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
+        </li>
+        <li class="nav-item p-2">
+          <%= link_to "出荷情報一覧", orders_path, class: "btn btn-info" %>
+        </li>
         <li class="nav-item p-2">
           <%= link_to "ジャンル", genres_path, class: "btn btn-warning" %>
         </li>
@@ -36,7 +39,7 @@
           <%= link_to "マイページ", mypage_contractors_path, class: 'btn btn-primary' %>
         </li>
         <li class="nav-item p-2">
-          <%= link_to "入庫商品一覧", receiving_stocks_path, class: "btn btn-secondary" %>
+          <%= link_to "入庫商品一覧・登録", receiving_stocks_path, class: "btn btn-secondary" %>
         </li>
         <li class="nav-item p-2">
           <%= link_to "出荷商品一覧", issues_path, class: "btn btn-secondary" %>
@@ -50,7 +53,11 @@
         </li>
         
         <li class="nav-item p-2">
-          <%= link_to "出荷先登録", addresses_path, class: "btn btn-info" %>
+          <%= link_to "出荷先一覧・登録", addresses_path, class: "btn btn-info" %>
+        </li>
+        
+         <li class="nav-item p-2">
+          <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
         </li>
         
         <li class="nav-item p-2">

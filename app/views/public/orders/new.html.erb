@@ -1,15 +1,16 @@
 <%= form_with model: @order, url: confirm_orders_path(@order), local: true do |f| %>
   <tr> 
-    <td><%#= f.radio_button :select_address, 1 %>登録済み住所</td></br>
+    <td><%#= f.radio_button :select_address, 1 %>取引先住所</td></br>
     <td><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :post_code_in_address) %></td>
     <%= link_to "出荷先確定" %>
   </tr>
   <div>
     <%= link_to "新規出荷先登録", addresses_path %>
   </div>  
-  <div>出荷先住所</div>
-  <div>顧客名</div>
+  <!--<div>出荷先住所</div>-->
+  <!--<div>顧客名</div>-->
   <div>会社名</div>
+  
 
 <table>
   <td>
