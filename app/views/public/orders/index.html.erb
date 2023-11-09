@@ -17,12 +17,12 @@
            <% @orders.each do |order| %>
           <tr>
             <td><%= order.created_at.strftime('%Y/ %m/ %d') %></td>
-            <td><%= "〒#{order.post_code}" + " " + "#{order.address}"  %></td>
-            <td><%= order.name %></td>
-            <td><%= "#{order.total_payment.to_s(:delimited)}円" %></td>
-            <td><%= order.sales_company_name %></td>
+            <td><%#= "〒#{order.post_code}" + " " + "#{order.address}"  %></td>
+            <td><%= order.address.name %></td>
+            <td><%#= "#{order.total_payment.to_s(:delimited)}円" %></td>
+            <td><%#= order.sales_company_name %></td>
             <td><%= link_to "表示する", order_path(order), class: "btn btn-primary"  %></td>
-          </tr>
+          </tr> 
           <% end %>
         </tbody>
       </table>

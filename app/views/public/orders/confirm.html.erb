@@ -16,9 +16,9 @@
           <tr>
             <td><%= image_tag issue.receiving_stock.image,  size: "60x60" %></td>
             <td><%= issue.receiving_stock.name %></td>
-            <td>￥<%#= shipping_information.add_tax_cost %></td>
+            <td>￥<%= issue.add_tax_cost.to_s(:delimited) %></td>
             <td><%= issue.stock %></td>
-            <td>￥<%#= (shipping_information.item.add_tax_cost * shipping_information.amount).to_s(:delimited) %></td>
+            <td>￥<%= issue.subtotal.to_s(:delimited) %></td>
           </tr>
           <% end %>
         </tbody>
@@ -43,12 +43,12 @@
 
   <div>
     <%= form_with model: @order, url: orders_path, method: :post do |f| %>
-      <%= f.hidden_field :post_code, :value => @order.post_code %>
-      <%= f.hidden_field :address, :value => @order.address %>
-      <%= f.hidden_field :name, :value => @order.name %>
-      <%= f.hidden_field :total_payment, :value => @total %>
-      <%= f.hidden_field :shipping_cost, :value => @postage %>
-      <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+      <%#= f.hidden_field :post_code, :value => @order.address.post_code %>
+      <%= f.hidden_field :address_id, :value => @order.address.id %>
+      <%#= f.hidden_field :issue_id, :value => @issues.pluck(:id) %>
+      <%#= f.hidden_field :total_payment, :value => @total %>
+      <%#= f.hidden_field :shipping_cost, :value => @postage %>
+      <%#= f.hidden_field :payment_method, :value => @order.payment_method %>
       <div>
         <%= f.submit "出荷を確定する", class: "btn btn-success" %>
       </div>
