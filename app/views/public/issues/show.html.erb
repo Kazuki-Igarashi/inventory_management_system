@@ -19,8 +19,10 @@
       <%#= f.hidden_field :item_id, :value => @receiving_stock.id %>
       
       <div class="my-2">出荷先企業</div>
-      <%= f.text_area :sales_company_name %>
-      <%#= f.select :company_id, options_from_collection_for_select(company, :id, :company) %>
+      <%#= f.text_area :sales_company_name %>
+      <%#= f.select :company_id, options_from_collection_for_select(Company.all, :id, :name) %>
+      <%= f.collection_select :sales_company_name, Company.all, :name, :name %>
+      
       
       <%= f.submit '出庫する', class:"btn btn-success btn-sm"%>
     <% end %>

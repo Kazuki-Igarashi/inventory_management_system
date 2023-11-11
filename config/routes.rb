@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :shipping_informations
      
     # get 'shipping_informations/index'
+      get 'orders/confirm'=> 'orders#confirm'
       resources :orders do
         collection do
           post :confirm
