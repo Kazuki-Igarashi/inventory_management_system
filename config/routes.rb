@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   namespace :admin do
     resources :orders
     # get 'orders/index'
@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     # get 'shipping_informations/index'
       get 'orders/confirm'=> 'orders#confirm'
       resources :orders do
+        member do
+          delete :destroy
+        end
         collection do
           post :confirm
           get :completed
@@ -79,7 +82,9 @@ Rails.application.routes.draw do
       registrations: "public/registrations",
       sessions: 'public/sessions'
     }
-    
+    devise_scope :customer do
+      post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
+    end
     # devise_for :admins
     # 管理者用
     # URL /admin/sign_in ...

@@ -18,6 +18,14 @@
       <%= f.number_field :stock, placeholder:  "個数入力" %>個
       <%#= f.hidden_field :item_id, :value => @receiving_stock.id %>
       
+      <div>
+      <!--<div>販売ステータス</div>-->
+        <%#= f.radio_button :is_sales, "true" %>
+        <%#= f.label :is_sales, "販売中" %>
+        <%#= f.radio_button :is_sales,  "false" %>
+        <%#= f.label :is_sales, "販売停止中" %>
+      </div>
+      
       <div class="my-2">出荷先企業</div>
       <%#= f.text_area :sales_company_name %>
       <%#= f.select :company_id, options_from_collection_for_select(Company.all, :id, :name) %>

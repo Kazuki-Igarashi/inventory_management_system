@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  color: white !important;
+  background-color: #66FFFF;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 8px 26px;
+  font-size: 16px;
+  text-decoration: none;
+
+  position: relative;
+  overflow: hidden;
+
+  &__sm {
+    font-size: 14px;
+    padding: 4px 18px;
+  }
+
+  &__lg {
+    font-size: 20px;
+    padding: 12px 32px;
+  }
+
+  &__active {
+    background-color: gray;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: '';
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    padding-top: 100%;
+    transition: all 0.5s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  &:not(&__active):hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.1;
+  }
+}
+
+
+// .header{
+//   height: 50px;
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   background-color: #e6b8af;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 1;
+//   list-style: none;
+  
+//     &__logo{
+//     font-family: 'Playfair Display', serif;
+//     font-weight: normal;
+//     font-size: 24px;
+//     text-align: center;
+//     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+//   }
+// }
+
+.accordion{
+
+  position: absolute;
+  top: 10px;
+  right:0;
+
+
+
+
+  &__item {
+    border-radius: 50%;
+    width: 110px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcdcdc;
+    color: black;
+    padding: 10px;
+    margin:10px;
+    text-align: center;
+    list-style: none;
+    overflow: hidden;
+    transition: opacity 0.8s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+    &.active{
+      background-color: black;
+      color: gold;
+    }
+
+    &:hover,
+    &:active{
+      background-color: black;
+      color: gold;
+
+      & > a{
+        color: gold;
+      }
+    }
+
+    &:not(:first-child) {
+      height: 0;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+
+      &.visible {
+
+        height: 50px;
+        opacity: 1;
+        padding: 10px;
+        margin:10px;
+
+      }
+    }
+  }
+}

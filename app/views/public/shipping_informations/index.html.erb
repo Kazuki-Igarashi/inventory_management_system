@@ -21,7 +21,7 @@
             <td>¥<%= issue.add_tax_cost.to_s(:delimited) %></td>
             <td>
               <%= form_with model: issue do |f| %>
-                <%= f.number_field :amount, value: issue.stock %>個
+                <%= f.number_field :stock, value: issue.stock %>個
                 <%= f.submit "変更", class: "btn btn-success" %>
               <% end %>
             </td>
