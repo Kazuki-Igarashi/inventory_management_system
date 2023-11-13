@@ -28,10 +28,10 @@ class Public::ReceivingStocksController < ApplicationController
     @receiving_stock = ReceivingStock.new(receiving_stock_params)
     if @receiving_stock.save
       redirect_to receiving_stocks_path(@receiving_stock.id)
-      flash[:notice] = 'The product has been registered'
+      flash[:notice] = '登録が成功しました。'
     else
       @genres = Genre.all
-      flash.now[:alert] = 'Could not register product'
+      flash.now[:alert] = '登録に失敗しました。'
       render :new
     end
   end
@@ -44,10 +44,10 @@ class Public::ReceivingStocksController < ApplicationController
     @receiving_stock = ReceivingStock.find(params[:id])
       if @receiving_stock.update(receiving_stock_params)
        redirect_to  receiving_stock_path(@receiving_stock.id)
-       flash[:notice] = 'Product updated'
+       flash[:notice] = '更新が成功しました。'
       else
         @genres = Genre.all
-        flash.now[:alert] = 'Could not update product'
+        flash.now[:alert] = '更新が失敗しました。'
         render  :edit
       end
   end

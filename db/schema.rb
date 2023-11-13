@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2023_11_09_135106) do
     t.string "post_code"
     t.string "address"
     t.string "name"
-    t.string "company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

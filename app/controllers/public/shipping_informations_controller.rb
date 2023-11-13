@@ -33,20 +33,6 @@ class Public::ShippingInformationsController < ApplicationController
     flash[:notice] = 'Cart item update successfully'
     redirect_to items_path
   end
-
-  def destroy
-    shipping_information = ShippingInformation.find(params[:id])
-    shipping_information.destroy
-    redirect_to shipping_informations_path
-    flash[:notice] = "Cart item was successfully destroyed."
-  end
-  
-  def destroy_all
-    shipping_informations = current_customer.shipping_informations.all
-    shipping_informations.destroy_all
-    flash[:notice] =  "Cart item was successfully all destroyed"
-    redirect_back fallback_location: root_path
-  end
   
   private
   def shipping_informations_params

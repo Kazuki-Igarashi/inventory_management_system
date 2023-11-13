@@ -6,83 +6,103 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+     <%= javascript_pack_tag 'nav', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  
   </head>
- <%= link_to "Inventory Management System", root_path %></div>
-  <div>
-    <ul>
-      <% if admin_signed_in? %>
-        <li class="nav-item p-2">
-          <%= link_to "商品一覧", receiving_stocks_path, class: 'btn btn-primary' %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "会員一覧", admin_contractors_path, class: "btn btn-secondary" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "出荷情報一覧", orders_path, class: "btn btn-info" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "出荷情報一覧", admin_orders_path, class: "btn btn-info" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "ジャンル", genres_path, class: "btn btn-warning" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-danger" %>
-        </li>
-      <% elsif customer_signed_in? %>
-        <div class="mt-3 mr-5 text-black">
-          ようこそ、<%= current_customer.name %>さん!
-        </div>
-        <li class="nav-item p-2">
-          <%= link_to "マイページ", mypage_contractors_path, class: 'btn btn-primary' %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "入庫商品一覧・登録", receiving_stocks_path, class: "btn btn-secondary" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "出荷商品一覧", issues_path, class: "btn btn-secondary" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "出荷商品",  shipping_informations_path, class: "btn btn-info" %>
-        </li>
-        
-        <li class="nav-item p-2">
-          <%= link_to "出荷情報一覧", orders_path, class: "btn btn-info" %>
-        </li>
-        
-        <li class="nav-item p-2">
-          <%= link_to "出荷先一覧・登録", addresses_path, class: "btn btn-info" %>
-        </li>
-        
-         <li class="nav-item p-2">
-          <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
-        </li>
-        
-        <li class="nav-item p-2">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-danger" %>
-        </li>
-      <% else %>
-        <li class="nav-item p-2">
-          <%= link_to "about", about_path, class: 'btn btn-primary' %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "商品一覧", receiving_stocks_path, class: "btn btn-secondary" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-info" %>
-        </li>
-        <li class="nav-item p-2">
-          <%= link_to "ログイン", customer_session_path, class: "btn btn-info" %>
-        </li>
-      <% end %>
-   </ul>
-  </div>
+
   <body>
+    <header class="header">
+      <%= link_to "～Inventory Management System～", about_path, class: "header__logo" %>
+  
+      <% if admin_signed_in? %>
+      <div class="nav">
+        <ul class="accordion">
+          <li class="accordion__item">Navi</li>
+          <li class="accordion__item p-2">
+            <%= link_to "商品一覧", receiving_stocks_path, class: 'btn btn-primary' %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "会員一覧", admin_contractors_path, class: "btn btn-secondary" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "出荷情報一覧", admin_orders_path, class: "btn btn-info" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "ジャンル", genres_path, class: "btn btn-warning" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-danger" %>
+          </li>
+        </ul>
+      </div>
+      <% elsif customer_signed_in? %>
+       <div class="nav">
+          <ul class="accordion">
+            <li class="accordion__item">Navi</li>
+            <li class="accordion__item p-2">
+              <%= link_to "マイページ", mypage_contractors_path, class: 'btn btn-primary' %>
+            </li>
+            <li class="accordion__item p-2">
+              <%= link_to "入庫商品一覧・登録", receiving_stocks_path, class: "btn btn-secondary" %>
+            </li>
+            <li class="accordion__item p-2">
+              <%= link_to "出荷商品一覧", issues_path, class: "btn btn-secondary" %>
+            </li>
+            <li class="accordion__item p-2">
+              <%= link_to "出荷商品",  shipping_informations_path, class: "btn btn-info" %>
+            </li>
+            
+            <li class="accordion__item p-2">
+              <%= link_to "出荷情報一覧", orders_path, class: "btn btn-info" %>
+            </li>
+            <li class="accordion__item p-2">
+              <%= link_to "出荷先一覧・登録", addresses_path, class: "btn btn-info" %>
+            </li>
+             <li class="accordion__item p-2">
+              <%= link_to "取引先一覧・登録", companys_path, class: "btn btn-info" %>
+            </li>
+            <li class="accordion__item p-2">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-danger" %>
+            </li>
+          </ul>
+          <div class="mt-3 mr-5 text-black">
+            ようこそ、<%= current_customer.name %>さん!
+          </div>
+        </div>
+      <% else %>
+      <div class="nav">
+        <ul class="accordion">
+          <li class="accordion__item">Navi</li>
+          <li class="accordion__item p-2">
+            <%= link_to "Top", root_path, class: "btn btn-secondary" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "About", about_path, class: 'btn btn-primary' %>
+          </li>
+          
+          <li class="accordion__item p-2">
+            <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-info" %>
+          </li>
+          <li class="accordion__item p-2">
+            <%= link_to "ログイン", customer_session_path, class: "btn btn-info" %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+</header>
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,7 @@
 
 <div>
   <h1>商品詳細</h1>
-  
+  <%= render 'layouts/error', model: @issue %>
     <%= form_with model: @issue, method: :post, local: true do |f| %>
       <%= image_tag @receiving_stock.image, size: "200x200" %>
       
@@ -17,6 +17,14 @@
       <div class="my-2">出庫数</div>
       <%= f.number_field :stock, placeholder:  "個数入力" %>個
       <%#= f.hidden_field :item_id, :value => @receiving_stock.id %>
+      
+      <div>
+      <!--<div>販売ステータス</div>-->
+        <%#= f.radio_button :is_sales, "true" %>
+        <%#= f.label :is_sales, "販売中" %>
+        <%#= f.radio_button :is_sales,  "false" %>
+        <%#= f.label :is_sales, "販売停止中" %>
+      </div>
       
       <div class="my-2">出荷先企業</div>
       <%#= f.text_area :sales_company_name %>

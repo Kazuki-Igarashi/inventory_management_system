@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       new_admin_session_path
 
     else
-      about_path
+      root_path
     end
   end
 
