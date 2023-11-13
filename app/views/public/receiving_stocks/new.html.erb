@@ -1,6 +1,7 @@
-<h3>商品新規投稿</h3>
 
-  <%= form_with model: @receiving_stock, method: :post do |f| %>
+<h3>商品新規登録</h3>
+<%= render 'layouts/error', model: @receiving_stock %> 
+<%= form_with model: @receiving_stock, method: :post do |f| %>
 
     <div class="my-2">商品画像</div>
     <%= f.file_field :image, accept: "image/*" %>

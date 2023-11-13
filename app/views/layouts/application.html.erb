@@ -18,7 +18,7 @@
 
   <body>
     <header class="header">
-      <%= link_to "～Inventory Management System～", root_path, class: "header__logo" %>
+      <%= link_to "～Inventory Management System～", about_path, class: "header__logo" %>
   
       <% if admin_signed_in? %>
       <div class="nav">
@@ -99,6 +99,10 @@
       </div>
       <% end %>
 </header>
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

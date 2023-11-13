@@ -1,7 +1,7 @@
 <div class="d-flex mx-4 mt-4 mb-2">
 <h3 class="bg-light px-4">会員情報編集</h2>
 </div>
-
+  <%= render 'layouts/error', model: @customer %>
 <%= form_with model: @customer, url: edit_contractors_path do |f| %>
   <div class="row ml-5">
     <table class="col-10 table table-borderless">

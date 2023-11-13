@@ -132,6 +132,7 @@ receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/bu
       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
       # company_name: "株式会社A",
       customer_id: n+1
+      
     )
   end
 

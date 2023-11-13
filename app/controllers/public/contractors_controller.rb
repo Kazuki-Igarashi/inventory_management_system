@@ -1,6 +1,6 @@
 class Public::ContractorsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_guest_user, only: [:edit]
+  # before_action :ensure_guest_user, only: [:edit]
   def show #顧客情報表示
     @customer = current_customer
     # @user = User.find(params[:id])
@@ -44,11 +44,11 @@ class Public::ContractorsController < ApplicationController
                                        :email, :post_code, :address, :telephone_number, :company_name, :company_name_kana )
     end
   
-  def ensure_guest_user
-    @customer = Customer.find(params[:id])
-    if @customer.email == "guest@example.com"
-      redirect_to root_path , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
-    end
-  end  
+  # def ensure_guest_user
+  #   @customer = Customer.find(params[:id])
+  #   if @customer.email == "guest@example.com"
+  #     redirect_to root_path , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+  #   end
+  # end  
 end
 

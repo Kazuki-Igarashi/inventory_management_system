@@ -1,7 +1,7 @@
 
 <div>
   <h1>商品詳細</h1>
-  
+  <%= render 'layouts/error', model: @issue %>
     <%= form_with model: @issue, method: :post, local: true do |f| %>
       <%= image_tag @receiving_stock.image, size: "200x200" %>
       

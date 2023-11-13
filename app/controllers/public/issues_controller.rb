@@ -25,7 +25,7 @@ class Public::IssuesController < ApplicationController
     @issue = current_customer.issues.build(issue_params)
     if @issue.save
       redirect_to shipping_informations_path
-      flash[:notice] = 'The product has been registered'
+      flash[:notice] = '商品を追加しました。'
     else
       @receiving_stock = @issue.receiving_stock
       @receiving_stock_sum = ReceivingStock.where(name: @receiving_stock.name).sum(:stock)
@@ -58,13 +58,13 @@ class Public::IssuesController < ApplicationController
     receiving_stock.update(stock: receiving_stock.stock + issue.stock)
     issue.destroy
     redirect_to shipping_informations_path
-    flash[:notice] = "Cart item was successfully destroyed."
+    flash[:notice] = "商品を削除しました。"
   end
   
   def destroy_all
     issues = current_customer.issues.all
     issues.destroy_all
-    flash[:notice] =  "Cart item was successfully all destroyed"
+    flash[:notice] =  "商品を全て削除しました。"
     redirect_back fallback_location: root_path
   end
 

@@ -11,10 +11,10 @@ class Public::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      flash.now[notice] = "新規登録しました"
+      flash[notice] = "新規登録しました。"
       redirect_to genres_path
     else
-      flash.now[alert] = "ジャンルが重複していないか確認してください"
+      flash.now[alert] = "ジャンルが重複していないか確認してください。"
       @genres = Genre.all
       render :index
     end
@@ -23,6 +23,7 @@ class Public::GenresController < ApplicationController
   def destroy
     genre = Genre.find(params[:id])
     genre.destroy
+    flash[alert] = "ジャンルを削除しました。"
     redirect_to genres_path
   end
 
@@ -33,10 +34,10 @@ class Public::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if  @genre.update(genre_params)
-      flash.now[notice] = "編集に成功しました"
+      flash[notice] = "編集に成功しました。"
       redirect_to genres_path
     else
-      flash.now[alert] = "編集に失敗しました"
+      flash.now[alert] = "編集に失敗しました。"
       @genres = Genre.all
       render :index
     end
