@@ -10,4 +10,13 @@ class Customer < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :shipping_informations, dependent: :destroy
+  
+  GUEST_USER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
 end
