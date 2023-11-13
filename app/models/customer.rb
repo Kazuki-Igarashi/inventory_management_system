@@ -11,15 +11,15 @@ class Customer < ApplicationRecord
   has_many :issues, dependent: :destroy
   has_many :shipping_informations, dependent: :destroy
   
-  validates :name, presence: true
-  validates :name_kana, presence: true
-  validates :email, presence: true
-  validates :encrypted_password, presence: true
-  validates :telephone_number, presence: true
-  validates :post_code, presence: true
-  validates :address, presence: true
-  validates :company_name, presence: true
-  validates :company_name_kana, presence: true
+  # validates :name, presence: true
+  # validates :name_kana, presence: true
+  # validates :email, presence: true
+  # validates :encrypted_password, presence: true
+  # validates :telephone_number, presence: true
+  # validates :post_code, presence: true
+  # validates :address, presence: true
+  # validates :company_name, presence: true
+  # validates :company_name_kana, presence: true
   
   GUEST_USER_EMAIL = "guest@example.com"
 
