@@ -7,7 +7,7 @@ class Public::IssuesController < ApplicationController
     elsif params[:name]
        @receiving_stocks = ReceivingStock.name
     else
-       @receiving_stocks = ReceivingStock.all
+       @receiving_stocks = ReceivingStock.where(is_sales: true)
     end
   end
 
@@ -39,9 +39,9 @@ class Public::IssuesController < ApplicationController
   # end
   
   def update
-    @receiving_stock = ReceivingStock.find(params[:id])
-      if @receiving_stock.update(receiving_stock_params)
-       redirect_to  receiving_stock_path(@receiving_stock.id)
+    @issue = Issue.find(params[:id])
+      if @issue.update(issue_params)
+       redirect_to  shipping_informations_path(@issue.id)
        flash[:notice] = 'Product updated'
       else
         @genres = Genre.all
@@ -49,9 +49,13 @@ class Public::IssuesController < ApplicationController
         render  :edit
       end
   end
+  
+  
 
   def destroy
     issue = Issue.find(params[:id])
+    receiving_stock = issue.receiving_stock
+    receiving_stock.update(stock: receiving_stock.stock + issue.stock)
     issue.destroy
     redirect_to shipping_informations_path
     flash[:notice] = "Cart item was successfully destroyed."
