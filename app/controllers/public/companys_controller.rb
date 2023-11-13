@@ -7,13 +7,13 @@ class Public::CompanysController < ApplicationController
   end
 
   def create
-    @company = Company.new(address_params)
-    @company.customer_id = current_customer.id
+    @company = Company.new(company_params)
+    # @company.customer_id = current_customer.id
     if @company.save
       flash[notice] = "登録に成功しました"
-      redirect_to addresses_path
+      redirect_to companys_path
     else
-      @addresses = current_customer.company
+      @companys = Company.all
       flash.now[alert] =  "登録に失敗しました"
       render :index
     end
