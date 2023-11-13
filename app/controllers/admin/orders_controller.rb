@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
+# before_action :authenticate_customer!
+  
   def new
     @order = Order.new
     @addresses = Address.all
@@ -8,11 +10,16 @@ class Admin::OrdersController < ApplicationController
   def confirm
     @issues = Issue.where(customer_id: current_customer.id)
     @sub_total = @issues.inject(0) { |sum, issue | sum += (issue.add_tax_cost * issue.stock) }
-    # @sub_total = 
     @postage = 800
     @total = @sub_total + @postage
-
-    @order = Order.new(order_params)
+    
+    if  params[:order].present?
+      @order = Order.new(order_params)
+    else
+      return redirect_to new_order_path
+    end
+    
+    
 
     # @order.payment_method = params[:order][:payment_method]
 
@@ -32,6 +39,12 @@ class Admin::OrdersController < ApplicationController
       when "new_address"
         @selected_address = params[:order][:post_code] + "  " + params[:order][:address] + "  " + params[:order][:name]
     end
+  end
+
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    redirect_to admin_orders_path
   end
 
   def create
@@ -64,12 +77,20 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(customer_id: current_customer.id).order(create_at: :desc)
+    @orders = Order.all.order(create_at: :desc)
+    
   end
 
   def show
     @order = Order.find(params[:id])
+    # @sub_total = @oorder_detail.total_amount * amount
     @postage = 800
+    # @total = @sub_total + @postage
+    @total = 0;
+      @order.order_details.each do |order_detail|
+        @sub_total = order_detail.total_amount
+    end
+    @total = @sub_total + @postage
   end
 
 
@@ -80,3 +101,4 @@ class Admin::OrdersController < ApplicationController
   end
 
 end
+

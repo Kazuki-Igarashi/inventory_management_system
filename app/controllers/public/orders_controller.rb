@@ -12,8 +12,18 @@ class Public::OrdersController < ApplicationController
     @sub_total = @issues.inject(0) { |sum, issue | sum += (issue.add_tax_cost * issue.stock) }
     @postage = 800
     @total = @sub_total + @postage
-
-    @order = Order.new(order_params)
+    
+    if  params[:order].present?
+      @order = Order.new(order_params)
+    else
+      return redirect_to new_order_path
+    end
+    
+    def destroy
+      order = Order.find(params[:id])
+      order.destroy
+      redirect_to orders_path
+    end
 
     # @order.payment_method = params[:order][:payment_method]
 
@@ -66,13 +76,19 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id).order(create_at: :desc)
+    
   end
 
   def show
     @order = Order.find(params[:id])
-    # @sub_total = order_detail.total_amount * amount
+    # @sub_total = @oorder_detail.total_amount * amount
     @postage = 800
     # @total = @sub_total + @postage
+    @total = 0;
+      @order.order_details.each do |order_detail|
+        @sub_total = order_detail.total_amount
+    end
+    @total = @sub_total + @postage
   end
 
 
