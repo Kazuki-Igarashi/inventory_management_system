@@ -1,6 +1,10 @@
 # inventory_management_system
 
 ## サイト概要
+![PF概要1](https://github.com/Kazuki-Igarashi/inventory_management_system/assets/141293221/74bdc47e-3b7c-4f04-b068-151a678dd42d)
+![PF概要2](https://github.com/Kazuki-Igarashi/inventory_management_system/assets/141293221/83b953da-39a2-46e0-9122-ca8acdc0674e)
+
+
 ### サイトテーマ
   ・資材や在庫管理が出来る在庫管理アプリ
 ### テーマを選んだ理由
