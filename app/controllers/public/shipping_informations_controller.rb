@@ -1,6 +1,6 @@
 class Public::ShippingInformationsController < ApplicationController
   before_action :authenticate_customer!
-  
+  # before_action :is_matching_login_user
   def index
     @issues = current_customer.issues
     @shipping_informations = ShippingInformation.all

@@ -1,6 +1,6 @@
 class Public::ReceivingStocksController < ApplicationController
   
-  
+  # before_action :authenticate_customer!
   def index
     # @receiving_stocks = ReceivingStock.all
     #ソート機能 
