@@ -18,20 +18,34 @@
 ​
 ### ターゲットユーザ
   ・資材管理、在庫管理を行っている従業員の方
+    
   ・在庫管理システムの導入を検討している経営者
 ​
 ### 主な利用シーン
   ・商品を入庫した時、出庫した時
 ​
 ## 設計書
-  ・作成予定
+  ・アプリケーション詳細設計
+    https://docs.google.com/spreadsheets/d/1hxHoyWiCHeii94j6uMkA5_2nRRID_F99B6XaScIfhxE/edit?usp=sharing
+  　　
+  ・ER図
+    https://drive.google.com/file/d/1isk-OtPMjrl3wl_k3XydXQTRP8cAf8ja/view?usp=sharing
 
 ## 機能一覧
-
+https://docs.google.com/spreadsheets/d/13ujGMsTB8pvxODIKVDjast_c0_-9t0HznigYPRlKSFA/edit?usp=sharing
 ## 工夫・苦労点
-
+工夫点
+　・全体的に直感的に使用できるように工夫しました。
+　・PC操作が苦手な人でもわかるようAbout画面で使用できる項目を記入しました。
+　・CSSやJavaScriptを使用しアニメーションを作成しました。
+  ・他のアプリケーションの見た目と差別化をはかるためBootstrapを使用せずレイアウトを実装しました。
+ 苦労点
+ 　・直感的に操作できるようにレイアウトや操作などを作成した点。
+　 ・Orderの情報を反映させるのに苦労しました。
+   ・今までとことなるアプリケーションだったので1から作成するのに苦労しました。
 ## 感想
-​
+　・SNSやコミュニケーションアプリと異なり、実務で使用することを想定して作成したため、今までやってきたことから離れており中々思うように作成​できず、思っていた機能が時間的に作成できなかったのが悔しい部分です。
+ しかし1から自分で構想し作成したのは非常にいい経験になりました。
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -39,5 +53,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
-## 使用素材
-  ・後程記載
