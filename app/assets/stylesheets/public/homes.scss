@@ -122,3 +122,127 @@
             transform: perspective(800px) scale(1) rotateX(0);
  }
 }
+
+@media screen and (max-width: 768px) {
+.top {
+   color: #FFF;
+   margin-top: 50px;
+   background-image: image-url("kikai3.jpg");
+   width: 100%;
+   height: 85vh;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   align-items: center;
+   text-align: center;
+   display: inline-block;
+   vertical-align: middle;
+   background-position: center;
+   
+   &__pege{
+     margin-top: 100px;
+     padding-top: 100px;
+   }
+}
+
+.about{
+   // color: #FFF;
+   margin-top: 100px;
+   padding: 30px;
+   // background-image: image-url("buhin5.jpg");
+   width: 100%;
+   // height: 91vh;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   align-items: center;
+   text-align: center;
+   display: inline-block;
+   vertical-align: middle;
+   background-position: center;
+   box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+   
+   &__explanation {
+       padding: 10px;
+   }
+}
+
+.shutter{
+//  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+ background-color:#1e1e1e;
+  z-index:9999;
+}
+
+.shutter::before {
+  content: '';
+ position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+ background-color: #fff;
+  width: 0;
+  height: 1px;
+}
+
+.shutter {
+  -webkit-animation: shutterOpen 2.6s forwards;
+          animation: shutterOpen 2.6s forwards;
+}
+
+.shutter::before {
+  -webkit-animation: byeShutter 2.6s forwards;
+          animation: byeShutter 2.6s forwards;
+}
+
+.content {
+  -webkit-animation: contentScale 2.6s forwards;
+          animation: contentScale 2.6s forwards;
+}
+
+@keyframes byeShutter {
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    display: none;
+    z-index: -1;
+  }
+}
+
+@keyframes shutterOpen {
+  0% {
+    width: 0;
+   //  height: 1px;
+  }
+  50% {
+    width: 100%;
+   //  height: 1px;
+  }
+  90% {
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes contentScale {
+ 50% {
+    -webkit-transform: perspective(800px) scale(0.9) rotateX(15deg);
+            transform: perspective(800px) scale(0.9) rotateX(15deg);
+ }
+ 100% {
+    -webkit-transform: perspective(800px) scale(1) rotateX(0);
+            transform: perspective(800px) scale(1) rotateX(0);
+ }
+}
+}

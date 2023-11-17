@@ -19,8 +19,26 @@
     border-top: solid 6px #1dc1d6;
     border-left: solid 10px #1dc1d6;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
-   
-   &__form{
-     
-   }
+}
+
+@media screen and (max-width: 768px) {
+	.genre {
+  // color: #FFF;
+  margin: 50px auto;
+  width: 50%;
+  // height: 91vh;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   display: block;
+   vertical-align: middle;
+   background-position: center;
+    color: #00BCD4;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    border-left: solid 10px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
 }

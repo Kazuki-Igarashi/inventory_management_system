@@ -70,6 +70,79 @@
   border-color: #000;
   content: "";
   pointer-events: none;
+  }
 }
 
+@media screen and (max-width: 768px) {
+.issue {
+   margin: 50px auto;
+   width: 60%;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   display: block;
+   vertical-align: middle;
+   background-position: center;
+   padding:10px;
+   background: #e4fcff;/*背景色*/
+   border-top: solid 6px #1dc1d6;
+   border-left: solid 10px #1dc1d6;
+   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+   
+   
+   &__show{
+    margin: 50px auto;
+    width: 60%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: block;
+    vertical-align: middle;
+    background-position: center;
+    padding:10px;
+    border: 1px solid black;
+    background-color: #FFFF99;
+    color: #00BCD4;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    border-left: solid 10px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+   }
+   
+   &__index{
+     padding: 10px;
+   }
+   
+   &__select select{
+  appearance: none;
+  width: 300px;
+  padding: 11px 15px;
+  padding-right: 1em;
+  border: none;
+  outline: 0;
+  background-color: #fff;
+  background-image: none;
+  box-shadow: none;
+  text-indent: 0.01px;
+  text-overflow: ellipsis; // 文字の省略
+  cursor: pointer;
+  border-color: #000;
+  }
+  &__select::before {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-width: 10px 5px 0 5px;
+  border-style: solid;
+  border-color: #000;
+  content: "";
+  pointer-events: none;
+  }
+}
 }
