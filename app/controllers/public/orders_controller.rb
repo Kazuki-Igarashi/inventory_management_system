@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
-# before_action :authenticate_customer!
-  
+before_action :authenticate_customer!
+  # before_action :is_matching_login_user
   def new
     @order = Order.new
     @addresses = Address.all

@@ -1,6 +1,7 @@
 class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
-
+  # before_action :is_matching_login_user
+  
   def index
     @addresses = current_customer.addresses
     @address = Address.new
