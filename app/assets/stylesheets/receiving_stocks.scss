@@ -52,6 +52,61 @@
   border-color: #000;
   content: "";
   pointer-events: none;
+ }
 }
+
+@media screen and (max-width: 768px) {
+.receiving_stock {
+   margin: 50px auto;
+   width: 60%;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   display: block;
+   vertical-align: middle;
+   background-position: center;
+   padding:10px;
+   border: 1px solid black;
+   background-color: #CCFFFF;
+   border-left: double 7px #4ec4d3;/*左線*/
+   border-right: double 7px #4ec4d3;/*右線*/
    
+   &__table{
+    padding:10px;
+    border: 1px solid black;
+    color: #232323;
+    background: #fff8e8;
+    border-left: solid 10px #ffc06e;
+   }
+   
+    &__select select{
+  appearance: none;
+  width: 300px;
+  padding: 11px 15px;
+  padding-right: 1em;
+  border: none;
+  outline: 0;
+  background-color: #fff;
+  background-image: none;
+  box-shadow: none;
+  text-indent: 0.01px;
+  text-overflow: ellipsis; // 文字の省略
+  cursor: pointer;
+  border-color: #000;
+  }
+  &__select::before {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-width: 10px 5px 0 5px;
+  border-style: solid;
+  border-color: #000;
+  content: "";
+  pointer-events: none;
+ }
+}
 }
