@@ -18,7 +18,7 @@
 ​
 ### ターゲットユーザ
   ・資材管理、在庫管理を行っている従業員の方
-  
+  　　
   ・在庫管理システムの導入を検討している経営者
 ​
 ### 主な利用シーン
@@ -27,6 +27,7 @@
 ## 設計書
   ・アプリケーション詳細設計
   https://docs.google.com/spreadsheets/d/1hxHoyWiCHeii94j6uMkA5_2nRRID_F99B6XaScIfhxE/edit?usp=sharing
+  　　
   ・ER図
   https://drive.google.com/file/d/1isk-OtPMjrl3wl_k3XydXQTRP8cAf8ja/view?usp=sharing
 
