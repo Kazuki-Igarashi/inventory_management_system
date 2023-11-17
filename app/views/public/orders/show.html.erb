@@ -1,22 +1,22 @@
-<div class="container">
+<div class="order__show">
 
-  <h2 class="my-4">出荷情報確認画面</h2>
+  <h2>出荷情報確認画面</h2>
 
-  <div class="row">
-    <div class="col-7">
-      <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
+  <div>
+    <div>
+      <label style="background-color:#DDDDDD; text-align: left;">
         出荷情報
       </label>
-      <table class="table">
+      <table>
         <tr><th>出荷日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
-        <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>>
+        <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>
       </table>
     </div>
-    <div class="col-3">
+    <div>
        <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
         請求情報
       </label>
-      <table class="table">
+      <table>
         <!--<tr><th>商品合計</th><td><%#= @order.total_payment - @postage %></td></tr>-->
         <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>
         <tr><th>送料</th><td><%= @postage %>円</td></tr>
@@ -25,12 +25,12 @@
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-8">
-      <label class="font-weight-bold mb-2 ml-2" style="background-color:#DDDDDD;">
+  <div>
+    <div>
+      <label  style="background-color:#DDDDDD;">
         出荷内容
       </label>
-      <table class="table">
+      <table>
         <thead>
           <tr>
             <th>商品名  </th>
@@ -55,7 +55,8 @@
       </table>
     </div>
   </div>
-<div><%= link_to "一覧へ戻る", orders_path, class: "btn btn-info" %></div>
-<div><%= link_to "削除する", order_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-info" %></div>
-
+  <tr>
+<td><%= link_to "一覧へ戻る", orders_path, class: "button button__pink" %></td>
+<td><%= link_to "削除する", order_path, method: :delete, data: {confirm: "削除しますか？"}, class: "button button__red" %></td>
+  </tr>
 </div>

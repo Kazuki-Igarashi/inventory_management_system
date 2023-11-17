@@ -22,6 +22,7 @@ class Public::CompanysController < ApplicationController
   def destroy
     company = Company.find(params[:id])
     company.destroy
+    flash[notice] = "削除に成功しました"
     redirect_to companys_path
   end
 
@@ -30,7 +31,7 @@ class Public::CompanysController < ApplicationController
   end
 
   def update
-    @company = Companys.find(params[:id])
+    @company = Company.find(params[:id])
     if  @company.update(company_params)
       flash[notice] = "編集に成功しました"
       redirect_to companys_path

@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def guest_sign_in
+    # ゲストアカウントでログイン
+    sign_in Customer.guest
+    # 以下を変更
+    redirect_to about_path #遷移させたいページのpathを記述
+  end
+  
   def after_sign_up_path_for(resource_or_scope)
       
       about_path

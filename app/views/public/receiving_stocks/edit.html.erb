@@ -1,27 +1,32 @@
-<h3>商品編集</h3>
-
+<div class="receiving_stock" >
+  <h3>商品編集</h3>
+  
   <%= form_with model: @receiving_stock, method: :PATCH do |f| %>
-
-    <div class="my-2">商品画像</div>
+  
+    <div>商品画像</div>
     <%= f.file_field :image, accept: "image/*" %>
     
-    <div class="my-2">商品名</div>
+    <div>商品名</div>
     <%= f.text_field :name %>
     
-    <div class="my-2">商品説明</div>
+    <div>商品説明</div>
     <%= f.text_area :explanation %>
     
-    <div class="my-2">ジャンル</div>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください" %>
-   
-    <div class="my-2">入庫価格</div>
+    <div>ジャンル</div>
+    <div class="receiving_stock__select">
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください" %>
+    </div>
+    <div>入庫価格</div>
     <%= f.number_field :purchase_price, placeholder: "500" %>円
     
-    <div class="my-2">入庫数</div>
+    <div>入庫数</div>
     <%= f.number_field :stock, placeholder: "500" %>個
     
-    <div class="my-2">入荷会社</div>
+    <div>入荷会社</div>
     <%= f.text_area :conpany_name %>
+    <!--<div class="receiving_stock__select">-->
+      <%#= f.collection_select :company_name, Company.all, :name, :name, include_blank: "--選択してください" %>
+    <!--</div>-->
     
     <div>
       <div>販売ステータス</div>
@@ -31,9 +36,9 @@
         <%= f.label :is_sales, "販売停止中" %>
     </div>
     
-  <tr>
-    <td><%= f.submit '編集' %></td>
-    <td><%= link_to "一覧ページへ戻る", receiving_stocks_path %></td>
-  </tr>
-  
-<% end %>
+    <tr>
+      <td><%= f.submit '編集', class: "button button__pink" %></td>
+      <td><%= link_to "一覧ページへ戻る", receiving_stocks_path, class: "button button__sm"  %></td>
+    </tr>
+  <% end %>
+</div>

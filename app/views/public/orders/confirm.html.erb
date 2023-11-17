@@ -1,3 +1,4 @@
+<div class="order">
   <div>
     <h2>注文情報確認</h2>
   </div>
@@ -23,36 +24,21 @@
           <% end %>
         </tbody>
       </table>
-
-      <table>
-        <!--<tr><th class="pb-3">支払い方法</th><td class="pb-3"><%#= @order.payment_method_i18n %></td></tr>-->
-        <tr><th>お届け先</th><td>〒<%=  @order.address.post_code + "  " +@order.address.address %></td></tr>
-      </table>
-
-    </div>
-
-    <div>
-      <table>
-        <tr><th>送料</th><td><%= @postage %>円</td></tr>
-        <tr><th>商品合計</th><td><%= @sub_total.to_s(:delimited) %>円</td></tr>
-        <tr><th>請求金額</th><td><%= @total.to_s(:delimited) %>円</td></tr>
-      </table>
-    </div>
-
-  </diV>
-
-  <div>
-    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
-      <%#= f.hidden_field :post_code, :value => @order.address.post_code %>
-      <%= f.hidden_field :address_id, :value => @order.address.id %>
-      <%#= f.hidden_field :issue_id, :value => @issues.pluck(:id) %>
-      <%#= f.hidden_field :total_payment, :value => @total %>
-      <%#= f.hidden_field :shipping_cost, :value => @postage %>
-      <%#= f.hidden_field :payment_method, :value => @order.payment_method %>
-      <div>
-        <%= f.submit "出荷を確定する", class: "btn btn-success" %>
+      <div class="order__shipping">
+        <div>お届け先</div>
+        <div>〒<%=  @order.address.post_code + "  " +@order.address.address %></div>
       </div>
-    <% end %>
-  </div>
-
+    <div class="order__total">
+      <div>送料</div><div><%= @postage %>円</div>
+      <div>商品合計</div><div><%= @sub_total.to_s(:delimited) %>円</div>
+      <div>請求金額</div><div><%= @total.to_s(:delimited) %>円</div>
+    </div>
+    <div>
+      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+        <%= f.hidden_field :address_id, :value => @order.address.id %>
+      <div style="padding: 10px;">
+        <%= f.submit "出荷を確定する", class: "button button__pink" %>
+      </div>
+      <% end %>
+    </div>
 </div>

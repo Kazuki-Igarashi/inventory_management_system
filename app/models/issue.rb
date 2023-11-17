@@ -21,6 +21,9 @@ class Issue < ApplicationRecord
   private
   
   def stocks_update
+    if self.stock == nil
+      errors.add(:stock, "please set a number") and return 
+    end
     if self.receiving_stock.stock >= self.stock
       self.receiving_stock.update!(stock: self.receiving_stock.stock - self.stock)
     else

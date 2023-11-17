@@ -1,62 +1,58 @@
 
-<div class='container'>
-<h1>商品詳細</h1>
-<div class='row'>
-<div class='col-md-4'>
- <%= image_tag @receiving_stock.image, size: "200x200" %>
-</div>
+<div class='receiving_stock'>
+  <h1>商品詳細</h1>
 
-<div class='col-md-6'>
-<table class="table">
-  <tr>
-    <td>商品名</td>
-  <td><%= @receiving_stock.name %></td>
-  </tr>
-  <tr>
-    <td>商品説明</td>
-  <td><%= @receiving_stock.explanation %></td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @receiving_stock.genre.name %></td>
-  </tr>
-  <tr>  
-    <td>税込価格（税抜価格）</td>
-    <td><%= @receiving_stock.purchase_price.to_s(:delimited) %>円</td>
-  </tr>
-  
-  <tr>
-    <td>在庫数</td>
-    <td>
-      <%= @receiving_stock_sum.to_s(:delimited) %>個
-    </td>
-  </tr>
-  
-   <tr>
-    <td>仕入れ会社</td>
-    <td>
-      <%= @receiving_stock.conpany_name %>
-    </td>
-  </tr>
-  
-  <td>販売ステータス</td>
-  <td>
-    <% if @receiving_stock.is_sales == true %>
-      <div>販売中</div>
-    <% else %>
-      <div>販売停止中</div>
-    <% end %>
-  </td>
-  </tr>
+    <div>
+     <%= image_tag @receiving_stock.image, size: "200x200" %>
+    </div>
 
-</table>
-</div>
-</div>
-</div>
-<div class='text-center'>
-<tr>
-    <td><%= link_to "編集", edit_receiving_stock_path %></td>
-    <td><%= link_to "一覧ページへ戻る", receiving_stocks_path %></td>
+  <div class='col-md-6'>
+    <table class="table">
+    <tr>
+      <td>商品名</td>
+    <td><%= @receiving_stock.name %></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+    <td><%= @receiving_stock.explanation %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @receiving_stock.genre.name %></td>
+    </tr>
+    <tr>  
+      <td>税込価格（税抜価格）</td>
+      <td><%= @receiving_stock.purchase_price.to_s(:delimited) %>円</td>
+    </tr>
+    
+    <tr>
+      <td>在庫数</td>
+      <td>
+        <%= @receiving_stock_sum.to_s(:delimited) %>個
+      </td>
+    </tr>
+    
+     <tr>
+      <td>仕入れ会社</td>
+      <td>
+        <%= @receiving_stock.conpany_name %>
+      </td>
+    </tr>
+    
+    <td>販売ステータス</td>
+    <td>
+      <% if @receiving_stock.is_sales == true %>
+        <div>販売中</div>
+      <% else %>
+        <div>販売停止中</div>
+      <% end %>
+    </td>
+    </tr>
+    </table>
+  </div>
+  <tr>
+    <td><%= link_to "編集", edit_receiving_stock_path, class: "button button__pink" %></td>
+    <td><%= link_to "一覧ページへ戻る", receiving_stocks_path, class: "button button__sm" %></td>
   </tr>
 </div>
 

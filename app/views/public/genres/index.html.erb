@@ -1,22 +1,23 @@
-<h4>ジャンル追加/一覧</h4>
-
-<%= render "error", genre: @genre %>
-<%= render 'form', genre: @genre %>
-
-<table>
-  <thead>
-    <tr>
-      <th>ジャンル</th>
-    </tr>
-  </thead>
-  <tbody>
-     <% @genres.each do |genre| %>
-    <tr>
-      <td><%= genre.name %></td>
-      <td><%= link_to "編集する", edit_genre_path(genre.id) %>
-      <%= link_to "削除する", genre_path(genre.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-  <div><%= link_to "戻る", receiving_stocks_path %></div>
+<div class="genre">
+  <h4>ジャンル追加/一覧</h4>
+  <%= render "error", genre: @genre %>
+  <%= render 'form', genre: @genre %>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ジャンル</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td><%= link_to "編集する", edit_genre_path(genre.id), class: "button button__blue" %>
+        <%= link_to "削除する", genre_path(genre.id), method: :delete, data: {confirm: "削除しますか？"}, class: "button button__red" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+    <div><%= link_to "戻る", receiving_stocks_path, class: "button button__sm" %></div>
+</div>

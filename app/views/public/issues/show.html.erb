@@ -1,5 +1,5 @@
 
-<div>
+<div class="issue__show">
   <h1>商品詳細</h1>
   <%= render 'layouts/error', model: @issue %>
     <%= form_with model: @issue, method: :post, local: true do |f| %>
@@ -8,33 +8,29 @@
       <div><%= @receiving_stock.name %></div>
       <%= f.hidden_field :receiving_stock_id %>
       <%= @receiving_stock.explanation %>
+      
       <div>入庫価格</div>
       <%= @receiving_stock.purchase_price %>円
-      <div class="my-2">出庫価格</div>
+      
+      <div>出庫価格</div>
       <%= f.number_field :selling_price, placeholder: "500" %>円
+      
       <div>在庫数</div>
       <%= @receiving_stock.name %>  :合計<%= @receiving_stock_sum %>個
-      <div class="my-2">出庫数</div>
-      <%= f.number_field :stock, placeholder:  "個数入力" %>個
-      <%#= f.hidden_field :item_id, :value => @receiving_stock.id %>
       
-      <div>
-      <!--<div>販売ステータス</div>-->
-        <%#= f.radio_button :is_sales, "true" %>
-        <%#= f.label :is_sales, "販売中" %>
-        <%#= f.radio_button :is_sales,  "false" %>
-        <%#= f.label :is_sales, "販売停止中" %>
+      <div class>出庫数</div>
+      <%= f.number_field :stock, placeholder:  "個数入力" %>個
+      
+      <div>出荷先企業</div>
+      <div class="issue__select">
+        <%= f.collection_select :sales_company_name, Company.all, :name, :name, include_blank: "--選択してください" %>
       </div>
       
-      <div class="my-2">出荷先企業</div>
-      <%#= f.text_area :sales_company_name %>
-      <%#= f.select :company_id, options_from_collection_for_select(Company.all, :id, :name) %>
-      <%= f.collection_select :sales_company_name, Company.all, :name, :name %>
-      
-      
-      <%= f.submit '出庫する', class:"btn btn-success btn-sm"%>
+      <div style="padding: 10px;">
+        <%= f.submit '出庫する', class: "button button__pink"%>
+      </div>
     <% end %>
-</div>
-<div class='text-center'>
-    <%= link_to "一覧ページへ戻る", receiving_stocks_path %>
+    <div class='issue__index'>
+      <%= link_to "一覧ページへ戻る", receiving_stocks_path, class: "button button__sm" %>
+    </div>
 </div>

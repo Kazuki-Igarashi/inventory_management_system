@@ -1,71 +1,61 @@
-<div class="d-flex mx-4 mt-4 mb-2">
-<h3 class="bg-light px-4">会員情報編集</h2>
+<div class="contractors" >
+  <h3>会員情報編集</h2>
+    <%= render 'layouts/error', model: @customer %>
+    <%= form_with model: @customer, url: edit_contractors_path do |f| %>
+    <div>
+      <table class="contractors__edit">
+        <tr>
+          <td><label for="customer_name">氏名</label></td>
+          <td><%= f.text_field :name, id: "customer_name", value: @customer.name %></td>
+          <td></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_name_kana">フリガナ</label></td>
+          <td><%= f.text_field :name_kana, id: "customer_name_kana", value: @customer.name_kana %></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_post_code">郵便番号</label></td>
+          <td><%= f.text_field :post_code, id: "customer_post_code", value: @customer.post_code, class: "form-control post_code" %></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_address">住所</label></td>
+          <td><%= f.text_field :address, id: "customer_address", value: @customer.address %></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_telephone_number">電話番号</label></td>
+          <td><%= f.text_field :telephone_number, id: "customer_telephone_number", value: @customer.telephone_number, class: "form-control telephone_number" %></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_email">メールアドレス</label></td>
+          <td><%= f.text_field :email, id: "customer_email", value: @customer.email, class: "form-control email" %></td>
+        </tr>
+  
+        <tr>
+          <td><label for="customer_email">会社名</label></td>
+          <td>
+            <%= f.text_field :company_name, id: "customer_company_name", value: @customer.company_name %>
+          </td>
+        </tr>
+        
+        <tr>
+          <td><label for="customer_email">会社名カナ</label></td>
+          <td>
+            <%= f.text_field :company_name_kana, id: "customer_company_name_kana", value: @customer.company_name_kana %>
+          </td>
+        </tr>
+  
+        <tr>
+          <td></td>
+          <td><%= f.submit "編集内容を保存", class: "button button__sm" %></td>
+          <td><%= link_to "退会する", quit_contractors_path, method: :get, class: "button button__red" %></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
 </div>
-  <%= render 'layouts/error', model: @customer %>
-<%= form_with model: @customer, url: edit_contractors_path do |f| %>
-  <div class="row ml-5">
-    <table class="col-10 table table-borderless">
-
-      <tr class="form-group">
-        <td><label for="customer_name">氏名</label></td>
-        <td><%= f.text_field :name, id: "customer_name", value: @customer.name %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_name_kana">フリガナ</label></td>
-        <td><%= f.text_field :name_kana, id: "customer_name_kana", value: @customer.name_kana %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_post_code">郵便番号</label></td>
-        <td><%= f.text_field :post_code, id: "customer_post_code", value: @customer.post_code, class: "form-control post_code" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_address">住所</label></td>
-        <td colspan="3"><%= f.text_field :address, id: "customer_address", value: @customer.address, class: "form-control address" %></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_telephone_number">電話番号</label></td>
-        <td><%= f.text_field :telephone_number, id: "customer_telephone_number", value: @customer.telephone_number, class: "form-control telephone_number" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_email">メールアドレス</label></td>
-        <td><%= f.text_field :email, id: "customer_email", value: @customer.email, class: "form-control email" %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td><label for="customer_email">会社名</label></td>
-        <td>
-          <%= f.text_field :company_name, id: "customer_company_name", value: @customer.company_name %>
-        </td>
-      </tr>
-      
-      <tr>
-        <td><label for="customer_email">会社名カナ</label></td>
-        <td>
-          <%= f.text_field :company_name_kana, id: "customer_company_name_kana", value: @customer.company_name_kana %>
-        </td>
-      </tr
-
-      <tr>
-        <td></td>
-        <td><%= f.submit "編集内容を保存", class: "btn btn-success btn-sm px-4" %></td>
-        <td><%= link_to "退会する", quit_contractors_path, method: :get %></td>
-        <td></td>
-      </tr>
-
-    </table>
-  </div>
-<% end %>
