@@ -1,25 +1,27 @@
-<h4>取引先先登録/一覧</h4>
-
-<%= render 'error', company: @company %>
-
-<%= render 'form', company: @company %>
-
-<table>
-  <thead>
-    <tr>
-      <th>会社名</th>
-    </tr>
-  </thead>
-  <tbody>
-     <% @companys.each do |company| %>
-    <tr>
-      <td><%= company.name %></td>
-      <td><%= link_to "編集する", edit_company_path(company.id) %>
-      <%= link_to "削除する",  company_path(company.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"%></td>
-    </tr>
-    <% end %>
-    <tr>
-      <td><%= link_to "情報入力に戻る",  new_order_path %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="company">
+  <h4>取引先先登録/一覧</h4>
+  
+  <%= render 'layouts/error', model: @company %>
+  
+  <%= render 'form', company: @company %>
+  
+  <table class="company__name">
+    <thead>
+      <tr>
+        <th>会社名</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% @companys.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= link_to "編集する", edit_company_path(company.id), class: "button button__blue" %>
+        <%= link_to "削除する",  company_path(company.id), method: :delete, data: {confirm: "削除しますか？"}, class: "button button__red" %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td><%= link_to "情報入力に戻る",  new_order_path, class: "button button__sm" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

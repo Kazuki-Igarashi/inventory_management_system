@@ -1,1 +1,5 @@
-2ゲストログイン機能の実装ができない
+1 sign_in sign_upボタンを押すとエラーがでる。
+ActionController::UnknownFormat in Public::RegistrationsController#new
+ActionController::UnknownFormat
+
+pathを変えてもだめ

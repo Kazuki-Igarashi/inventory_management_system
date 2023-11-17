@@ -58,6 +58,7 @@ class Public::OrdersController < ApplicationController
       issues.each do |issue|
         
         order_detail = order.order_details.new
+        # order_detail.issue_image = issue.receiving_stock.image
         order_detail.issue_name = issue.receiving_stock.name
         order_detail.stock = issue.stock
         order_detail.sales_company_name = issue.sales_company_name

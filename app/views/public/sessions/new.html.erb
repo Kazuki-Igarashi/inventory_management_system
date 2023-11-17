@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<div class="sign">
+  <h2>Log in</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: customer_session_path) do |f| %>
   <div class="field">
@@ -18,8 +20,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+   <div class="field">
+    <%= f.submit "Log in", class: 'button button__sm'%>
   </div>
 <% end %>
 

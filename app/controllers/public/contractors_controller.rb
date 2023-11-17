@@ -13,6 +13,7 @@ class Public::ContractorsController < ApplicationController
   def update #顧客情報アプデ
     @customer = current_customer
     @customer.update(customer_params)
+    flash[:notice] = "編集が完了しました。"
     redirect_to mypage_contractors_path
     # if @customer.update(customer_params)
     #   flash[:update] = "You have updated user info successfully."

@@ -10,7 +10,7 @@ class ReceivingStock < ApplicationRecord
   
   # validates :image, presence: true
   validates :name, presence: true
-  validates :conpany_name, presence: true
+  # validates :conpany_name, presence: true
   validates :purchase_price, presence: true
   validates :explanation, presence: true
   validates :stock, presence: true

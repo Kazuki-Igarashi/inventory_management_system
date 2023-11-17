@@ -20,7 +20,7 @@
 }
 
 .button {
-  color: white !important;
+  color: white;
   background-color: #66FFFF;
   border-radius: 50px;
   display: inline-block;
@@ -34,12 +34,31 @@
   &__sm {
     font-size: 14px;
     padding: 4px 18px;
+    background-color: #00FF66;
   }
 
   &__lg {
     font-size: 20px;
     padding: 12px 32px;
   }
+  
+  &__red{
+    background-color: #FF0033;
+    font-size: 14px;
+    padding: 4px 18px;
+  }
+
+  &__blue{
+    background-color: #99CC33;
+    font-size: 14px;
+    padding: 4px 18px;
+  }
+
+ &__pink{
+   background-color: #FF6666;
+   font-size: 14px;
+   padding: 4px 18px;
+ }
 
   &__active {
     background-color: gray;
@@ -66,27 +85,59 @@
   }
 }
 
+.sign{
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'Playfair Display', serif;
+  background-color: #99FFFF;
+  // position: absolute;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    // bottom: 0;
+    // margin: auto;
+    display: inline-block;
+    background: linear-gradient(180deg, #0072b4 0%, #7bc0be 72%, #afebea 100%);
+    background: -webkit-linear-gradient(-90deg, #0072b4 0%, #7bc0be 72%, #afebea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
-// .header{
-//   height: 50px;
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   background-color: #e6b8af;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 1;
-//   list-style: none;
+}
+
+.field {
+  // margin-top: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  padding: 5px;
+  border-left: double 7px #4ec4d3;/*左線*/
+  border-right: double 7px #4ec4d3;/*右線*/
   
-//     &__logo{
-//     font-family: 'Playfair Display', serif;
-//     font-weight: normal;
-//     font-size: 24px;
-//     text-align: center;
-//     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-//   }
-// }
+}
+
+.header{
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e6b8af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  
+    &__logo{
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  }
+}
 
 .accordion{
 
@@ -146,3 +197,25 @@
     }
   }
 }
+
+.flash-message {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 50px 0 0 0;
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+  animation: fade-out 1s linear 1.5s forwards;
+  
+  @keyframes fade-out {
+    from { opacity: 1 }
+    to {
+      display: none;
+      opacity: 0
+    }
+  }
+}
+ 

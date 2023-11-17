@@ -1,6 +1,6 @@
 <%= form_with model: address, url: addresses_path, method: :post do |f| %>
 
-<table>
+<table class="address__index">
     <tr>
         <td><%= f.label :post_code, "郵便番号(ハイフンなし)" %></td><td><%= f.text_field :post_code, placeholder: "0000000" %></td><td><br /></td>
     </tr>
@@ -14,7 +14,7 @@
       <td> <%#= f.label :company_name, "会社名" %></td><td><%#= f.text_field :company_name, placeholder: "株式会社A" %></td>
     </tr>
     <tr>
-      <td><%= f.submit '新規登録', class: "btn btn-primary" %></td>
+      <td><%= f.submit '新規登録', class: "button button__sm" %></td>
     </tr>
 </table>
 <% end %>

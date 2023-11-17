@@ -1,9 +1,9 @@
 <%= form_with model: genre, url: genres_path, method: :post do |f| %>
-<table>
+<table class="genre__form">
     <tr>
-        <td><%= f.label :name, "ジャンル名" %></td>
+        <td><%= f.label :name,"ジャンル名" %></td>
         <td><%= f.text_field :name, placeholder: "ジャンル名" %></td>
-        <td><%= f.submit '新規登録'%></td>
+        <td><%= f.submit '新規登録', class: "button button__pink" %></td>
     </tr>
 </table>
 

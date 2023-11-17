@@ -1,14 +1,14 @@
 <div class="about">
-
+<h2>機能一覧説明</h2>
 <div class="about__explanation">ここでは主な機能の説明を行っています。NAVをクリックすると機能一覧が表示されます。</div>
-<div class="about__explanation">・入庫商品一覧・登録ページでは主にできる事は入庫した商品を確認したり、新規に商品追加やジャンルの追加が出来ます。</div>
+<div class="about__explanation">・<%= link_to "入庫商品一覧・登録", receiving_stocks_path %>では主にできる事は入庫した商品を確認したり、新規に商品追加やジャンルの追加が出来ます。</div>
 <div class="about__explanation">また商品画像又は商品名をクリックした場合、詳細画面へ遷移し商品の編集が出来ます。</div>
-<div class="about__explanation">・出荷商品一覧では実際に出荷できる商品が一覧として表示され商品画像は商品名をクリックすると</div>
+<div class="about__explanation">・<%= link_to "出荷商品一覧", issues_path %>では実際に出荷できる商品が一覧として表示され商品画像は商品名をクリックすると</div>
 <div class="about__explanation">出庫画面へ遷移します。出庫画面では出庫価格、数量、出荷先企業を記入・選択し出荷することが出来ます。</div>
-<div class="about__explanation">・出荷商品では先ほど出荷入力した商品が追加され、数量の変更、新たな商品の追加、商品の削除が出来ます。</div>
-<div class="about__explanation">・出荷情報一覧では出荷が確定した一覧が見れ、詳細表示画面では出荷情報、請求情報、出荷内容の確認、削除が行えます。</div>
-<div class="about__explanation">・出荷先一覧・登録では、現在出荷できる住所の情報が確認、編集、削除ができ、また新たな住所の追加が行えます。</div>
-<div class="about__explanation">・取引先一覧・登録では、現在取引をしている企業の確認編集、削除ができ、また新たな取引先の追加が行えます。</div>
+<div class="about__explanation">・<%= link_to "出荷商品",  shipping_informations_path %>では先ほど出荷入力した商品が追加され、数量の変更、新たな商品の追加、商品の削除が出来ます。</div>
+<div class="about__explanation">・<%= link_to "出荷情報一覧", orders_path %>では出荷が確定した一覧が見れ、詳細表示画面では出荷情報、請求情報、出荷内容の確認、削除が行えます。</div>
+<div class="about__explanation">・<%= link_to "出荷先一覧・登録", addresses_path %>では、現在出荷できる住所の情報が確認、編集、削除ができ、また新たな住所の追加が行えます。</div>
+<div class="about__explanation">・<%= link_to "取引先一覧・登録", companys_path %>では、現在取引をしている企業の確認編集、削除ができ、また新たな取引先の追加が行えます。</div>
 <div></div>
 <div></div>
 

@@ -1,31 +1,30 @@
-<h4>配送先登録/一覧</h4>
-
-<%= render 'error', address: @address %>
-
-<%= render 'form', address: @address %>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">郵便番号</th>
-      <th scope="col">住所</th>
-      <th scope="col">宛名</th>
-      <!--<th scope="col">会社名</th>-->
-    </tr>
-  </thead>
-  <tbody>
-     <% @addresses.each do |address| %>
-    <tr>
-      <td>〒<%= address.post_code %></td>
-      <td><%= address.address %></td>
-      <td><%= address.name %></td>
-      <td><%#= address.company_name %></td>
-      <td><%= link_to "編集する", edit_address_path(address.id) ,class: "btn btn-success" %>
-      <%= link_to "削除する", address_path(address.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"%></td>
-    </tr>
-    <% end %>
-    <tr>
-      <td><%= link_to "情報入力に戻る",  new_order_path %></td>
-    </tr>
-  </tbody>
-</table>
+<div  class="address">
+  <h4>配送先登録/一覧</h4>
+      <%= render 'error', address: @address %>
+      <%= render 'form', address: @address %>
+  <table class="address__name">
+    <thead>
+      <tr>
+        <th scope="col">郵便番号</th>
+        <th scope="col">住所</th>
+        <th scope="col">宛名</th>
+        <!--<th scope="col">会社名</th>-->
+      </tr>
+    </thead>
+    <tbody>
+       <% @addresses.each do |address| %>
+      <tr>
+        <td>〒<%= address.post_code %></td>
+        <td><%= address.address %></td>
+        <td><%= address.name %></td>
+        <td><%#= address.company_name %></td>
+        <td><%= link_to "編集する", edit_address_path(address.id) ,class: "button button__blue" %>
+        <%= link_to "削除する", address_path(address.id), method: :delete, data: {confirm: "削除しますか？"}, class: "button button__red" %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td><%= link_to "情報入力に戻る",  new_order_path, class: "button button__sm"  %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,20 +1,20 @@
-    
-
-
-<div class="top">
-  <div>ようこそ、在庫管理アプリInventory Management Systemへ</div>
-  <div>このアプリは在庫管理を行うため作成されたアプリです</div>
-  <div>現在の資材の在庫情報が確認したい、出荷した履歴が見れる等の機能などを追加したアプリになります。</div>
-  
-  <div class="top__page">
-    <%= link_to "新規登録", new_customer_registration_path, class: "button" %>
-  </div>
-  <div class="top__page">
-    <%= link_to "ログイン", customer_session_path, class: "button" %>
-  </div>
-  
-  <div class="top__page">
-    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "button", method: :post %>
-  </div>
+<div class="shutter">
+  <section class="content">
+    <div class="top">
+      <div>ようこそ、在庫管理アプリInventory Management Systemへ</div>
+      <div>このアプリは在庫管理を行うため作成されたアプリです</div>
+      <div>現在の資材の在庫情報が確認したい、出荷した履歴が見れる等の機能などを追加したアプリになります。</div>
+      
+      <div class="top__page">
+        <%= link_to "新規登録", new_customer_registration_path, class: "button" %>
+      </div>
+      <div class="top__page">
+        <%= link_to "ログイン", customer_session_path, class: "button" %>
+      </div>
+      
+      <div class="top__page">
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "button", method: :post %>
+      </div>
+    </div>
+  </section>
 </div>
-

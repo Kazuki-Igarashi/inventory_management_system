@@ -1,2 +1,13 @@
-<h1>Public::Companys#edit</h1>
-<p>Find me in app/views/public/companys/edit.html.erb</p>
+<div class="company">
+  <h4>取引先編集</h4>
+  
+  <%= render 'layouts/error', model: @company %>
+  
+  <%= form_with model: @company, url: company_path, method: :patch do |f| %>
+    <div class="company__name"> <%= f.label :name, "会社名" %></div>
+    <div class="company__name"><%= f.text_field :name, placeholder: "株式会社A" %></div>
+    <div class="company__name"><%= f.submit '変更内容を保存する', class: "button button__sm" %></div>
+  <% end %>
+  
+  <%= link_to "戻る", companys_path, class: "button button__sm" %>
+</div>
