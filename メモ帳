@@ -1,0 +1,19 @@
+EC2
+ssh -i ~/.ssh/practice-aws.pem ec2-user@パブリックIPアドレス
+
+アプリケーションサーバー（Puma）を停止する
+kill $(cat tmp/pids/puma.pid)
+
+起動
+rails s -e production
+
+[ec2-user@ip-xx-xx-xx-xx ~]$ cd GitHubのリポジトリ名
+
+本番環境でデータベースをリセットしたい場合
+
+[ec2-user@ip-xx-xx-xx-xx アプリケーション名]$ RAILS_ENV=production DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:drop
+[ec2-user@ip-xx-xx-xx-xx アプリケーション名]$ rails db:create RAILS_ENV=production
+[ec2-user@ip-xx-xx-xx-xx アプリケーション名]$ rails db:migrate RAILS_ENV=production
+
+ログ確認
+less log/production.log

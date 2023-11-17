@@ -3,3 +3,16 @@ ActionController::UnknownFormat in Public::RegistrationsController#new
 ActionController::UnknownFormat
 
 pathを変えてもだめ
+
+テストデプロイするとエラー
+ActionView::Template::Error (Mysql2::Error: Unknown column 'create_at' in 'order clause'):
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     13:           </tr>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     14:         </thead>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     15:         <tbody>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     16:            <% @orders.each do |order| %>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     17:           <tr>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     18:             <td><%= order.created_at.strftime('%Y/ %m/ %d') %></td>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]     19:             <td><%= "〒#{order.address.post_code}" + " " + "#{order.address.address}"  %></td>
+[3af84d87-f82b-4a72-afa9-fd8de357e509]   
+[3af84d87-f82b-4a72-afa9-fd8de357e509] app/views/public/orders/index.html.erb:16
+(END)
