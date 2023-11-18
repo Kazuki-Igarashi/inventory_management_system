@@ -78,7 +78,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all.order(create_at: :desc)
+    @orders = Order.all.order(created_at: :desc)
     
   end
 
