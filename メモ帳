@@ -17,3 +17,5 @@ rails s -e production
 
 ログ確認
 less log/production.log
+
+tail -f log/production.log 

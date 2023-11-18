@@ -76,7 +76,7 @@ before_action :authenticate_customer!
   end
 
   def index
-    @orders = Order.where(customer_id: current_customer.id).order(create_at: :desc)
+    @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc)
     
   end
 

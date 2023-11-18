@@ -4,7 +4,9 @@ ActionController::UnknownFormat
 
 pathを変えてもだめ
 
-テストデプロイするとエラー
+2 新規ユーザー登録をしたら名前が表示されない
+
+3 テストデプロイするとエラー
 ActionView::Template::Error (Mysql2::Error: Unknown column 'create_at' in 'order clause'):
 [3af84d87-f82b-4a72-afa9-fd8de357e509]     13:           </tr>
 [3af84d87-f82b-4a72-afa9-fd8de357e509]     14:         </thead>
