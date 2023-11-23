@@ -31,11 +31,14 @@
           <li class="accordion__item p-2">
             <%= link_to "取引先一覧・登録", companys_path %>
           </li>
+           <li class="accordion__item p-2">
+            <%= link_to "出荷先一覧・登録", addresses_path %>
+          </li>
           <li class="accordion__item p-2">
             <%= link_to "出荷情報一覧", admin_orders_path %>
           </li>
           <li class="accordion__item p-2">
-            <%= link_to "ジャンル", genres_path %>
+            <%= link_to "ジャンル一覧・登録", genres_path %>
           </li>
           <li class="accordion__item p-2">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
