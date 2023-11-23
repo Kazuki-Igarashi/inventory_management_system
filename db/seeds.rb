@@ -125,14 +125,16 @@ receiving_stock = ReceivingStock.create!(
 receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/buhin6.jpg")), filename: "buhin6.jpg")
 
 
+ 10.times do |n|
     Address.create!(
-      name: "test",
+      name: "test#{n + 1}",
       post_code: "1234567",
       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
       # company_name: "株式会社A",
       customer_id: n+1
       
     )
+  end
 
 # 10.times do |n|
 #     Order.create!(
