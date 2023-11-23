@@ -1,28 +1,24 @@
 <div class="order__index">
-  <div>
-    <div>
-      <h2>出荷履歴一覧</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>注文日</th>
-            <th>配送先</th>
-            <th>宛名</th>
-            <!--<th>支払金額</th>-->
-            <!--<th>出荷先企業</th>-->
-          </tr>
-        </thead>
-        <tbody>
-           <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.created_at.strftime('%Y/ %m/ %d') %></td>
-            <td><%= "〒#{order.address.post_code}" + " " + "#{order.address.address}"  %></td>
-            <td><%= order.address.name %></td>
-            <td><%= link_to "詳細を表示する", order_path(order), class: "btn btn-primary"  %></td>
-          </tr> 
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <h2>出荷履歴一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>宛名</th>
+        <!--<th>支払金額</th>-->
+        <!--<th>出荷先企業</th>-->
+      </tr>
+    </thead>
+    <tbody>
+       <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at.strftime('%Y/ %m/ %d') %></td>
+        <td><%= "〒#{order.address.post_code}" + " " + "#{order.address.address}"  %></td>
+        <td><%= order.address.name %></td>
+        <td><%= link_to "詳細を表示する", order_path(order), class: "btn btn-primary"  %></td>
+      </tr> 
+      <% end %>
+    </tbody>
+  </table>
 </div>

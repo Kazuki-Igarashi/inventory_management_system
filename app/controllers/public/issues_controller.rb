@@ -66,6 +66,8 @@ class Public::IssuesController < ApplicationController
   
   def destroy_all
     issues = current_customer.issues.all
+    receiving_stock = issue.receiving_stock
+    receiving_stock.update(stock: receiving_stock.stock + issue.stock)
     issues.destroy_all
     flash[:notice] =  "商品を全て削除しました。"
     redirect_back fallback_location: root_path

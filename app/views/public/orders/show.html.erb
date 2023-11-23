@@ -17,7 +17,6 @@
         請求情報
       </label>
       <table>
-        <!--<tr><th>商品合計</th><td><%#= @order.total_payment - @postage %></td></tr>-->
         <tr><th>配送先</th><td><%= "〒" + @order.address.post_code + "  " + @order.address.address %></td></tr>
         <tr><th>送料</th><td><%= @postage %>円</td></tr>
         <tr><th>ご請求額</th><td><%= @total.to_s(:delimited) %>円</td></tr>

@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
 
+  
   namespace :admin do
     resources :orders
-    # get 'orders/index'
-    # get 'orders/show'
     resources :contractors
-    # get 'contractors/index'
-    # get 'contractors/show'
-    # get 'contractors/edit'
-  
     resources :genres
-    # get 'genres/index'
-    # get 'genres/edit'
-    # get 'genres/_form'
+    resources :addresses
   
   
     root :to => 'homes#top'

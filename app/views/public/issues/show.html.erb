@@ -22,6 +22,11 @@
       <%= f.number_field :stock, placeholder:  "個数入力" %>個
       
       <div>出荷先企業</div>
+      <div>
+        <%= link_to "取引先一覧・登録", companys_path %>
+      </div>
+      
+      <div>出荷先企業</div>
       <div class="issue__select">
         <%= f.collection_select :sales_company_name, Company.all, :name, :name, include_blank: "--選択してください" %>
       </div>
