@@ -74,7 +74,7 @@ class Public::IssuesController < ApplicationController
     
     issues.destroy_all
     flash[:notice] =  "商品を全て削除しました。"
-    redirect_back fallback_location: root_path
+    redirect_to issues_path
   end
 
   def search
