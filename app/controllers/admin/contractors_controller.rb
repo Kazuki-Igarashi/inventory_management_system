@@ -16,7 +16,7 @@ class Admin::ContractorsController < ApplicationController
     # @customer.update(customer_params)
     # redirect_to customer_path
     if @customer.update(customer_params)
-      flash[:update] = "You have updated user info successfully."
+      flash[:update] = "編集が成功しました。"
       redirect_to admin_contractor_path
     else
       render 'edit'
@@ -26,6 +26,6 @@ class Admin::ContractorsController < ApplicationController
   private
   def customer_params
     params.require(:customer).permit(:name, :name_kana, :post_code, :address,
-                                        :company_name, :company_name_kana, :telephone_number, :email, :is_member)
+                                        :company_name, :company_name_kana, :telephone_number, :email, :is_menber)
   end
 end

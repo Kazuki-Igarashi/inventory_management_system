@@ -2,7 +2,6 @@ class Public::ReceivingStocksController < ApplicationController
   
   # before_action :authenticate_customer!
   def index
-    # @receiving_stocks = ReceivingStock.all
     #ソート機能 
      if params[:latest]
         @receiving_stocks = ReceivingStock.latest
@@ -11,8 +10,11 @@ class Public::ReceivingStocksController < ApplicationController
      elsif params[:name]
        @receiving_stocks = ReceivingStock.order_name
      else
-       @receiving_stocks = ReceivingStock.all
+       @receiving_stocks = ReceivingStock.page(params[:page])
      end
+     
+     
+     
   end
 
   def new
@@ -22,6 +24,7 @@ class Public::ReceivingStocksController < ApplicationController
   def show
     @receiving_stock = ReceivingStock.find(params[:id])
     @receiving_stock_sum = ReceivingStock.where(name: @receiving_stock.name).sum(:stock)
+    # @receiving_stock = @receiving_stock.page(params[:page])
   end
 
   def create
@@ -50,6 +53,13 @@ class Public::ReceivingStocksController < ApplicationController
         flash.now[:alert] = '更新が失敗しました。'
         render  :edit
       end
+  end
+
+  def destroy
+    receiving_stock = ReceivingStock.find(params[:id])
+    receiving_stock.destroy
+    redirect_to receiving_stocks_path
+    flash[:notice] = "商品の削除に成功しました。"
   end
 
   def search

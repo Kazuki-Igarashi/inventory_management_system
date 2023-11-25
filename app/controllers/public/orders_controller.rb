@@ -5,6 +5,7 @@ before_action :authenticate_customer!
     @order = Order.new
     @addresses = Address.all
     @issues = current_customer.issues
+    
   end
 
   def confirm
@@ -12,6 +13,11 @@ before_action :authenticate_customer!
     @sub_total = @issues.inject(0) { |sum, issue | sum += (issue.add_tax_cost * issue.stock) }
     @postage = 800
     @total = @sub_total + @postage
+    
+    if params["order"]["address_id"].blank?
+      return redirect_to new_order_path
+    end
+      
     
     if  params[:order].present?
       @order = Order.new(order_params)

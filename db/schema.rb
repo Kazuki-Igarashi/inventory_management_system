@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2023_11_09_135106) do
   end
 
   create_table "contractors", force: :cascade do |t|
+    t.boolean "is_menber", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

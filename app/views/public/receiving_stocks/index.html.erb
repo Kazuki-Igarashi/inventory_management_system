@@ -9,6 +9,9 @@
   </div>
   <table class="receiving_stock__table">
     <div>
+     <%= form_with url: search_path%>
+    </div>
+    <div>
       <tr>
         <th>商品ID</th>
         <th>製品画像</th>
@@ -50,3 +53,4 @@
       </div>
   </table>
 </div>
+<div class="paginate"><%= paginate @receiving_stocks %></div>

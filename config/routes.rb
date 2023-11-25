@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resources :addresses
       resources :items
       resources :receiving_stocks
+      get "search", to: "receiving_stocks#search", as: "search"
       resources :genres
 
       

@@ -53,6 +53,7 @@
   <tr>
     <td><%= link_to "編集", edit_receiving_stock_path, class: "button button__pink" %></td>
     <td><%= link_to "一覧ページへ戻る", receiving_stocks_path, class: "button button__sm" %></td>
+    <td><%= link_to "削除する", receiving_stock_path, method: :delete, "data-confirm" => "商品を削除しますか？", class: "button button__red" %></td>
   </tr>
 </div>
 

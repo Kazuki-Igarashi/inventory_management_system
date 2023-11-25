@@ -8,6 +8,8 @@ class ReceivingStock < ApplicationRecord
   scope :order_name, -> {order(name: :desc)}
   has_many :issues, dependent: :destroy
   
+  
+  
   # validates :image, presence: true
   validates :name, presence: true
   # validates :conpany_name, presence: true
