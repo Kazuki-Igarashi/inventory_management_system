@@ -1,0 +1,19 @@
+<div>
+  <%= form_with url: posts_path, method: :get, local: true do |f|%>
+    <div>
+      <%= f.text_field :keyword, value: @keyword, placeholder: "キーワードを入力" %>
+        <span>
+          <%= button_tag type: "submit", class: "btn btn-secondary search-btn" do %>
+          <% end %>
+        </span>
+    </div>
+
+      <%= select_tag :tag_id,
+        options_from_collection_for_select(Tag.all, :id, :tag_type, params[:tag_id]),
+          {
+            prompt: "タグで絞り込み検索",
+            onchange: "submit(this.form);"
+          }
+      %>
+  <% end %>
+</div>

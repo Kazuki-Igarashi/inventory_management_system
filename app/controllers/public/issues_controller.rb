@@ -3,6 +3,7 @@ class Public::IssuesController < ApplicationController
   # before_action :is_matching_login_user
   
   def index
+    # ソート機能
     if params[:latest]
         @receiving_stocks = ReceivingStock.latest
     elsif params[:old]

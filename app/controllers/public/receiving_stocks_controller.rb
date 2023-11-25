@@ -2,18 +2,23 @@ class Public::ReceivingStocksController < ApplicationController
   
   # before_action :authenticate_customer!
   def index
+    # 検索機能
+     search_word = params[:word]
+     if search_word
+      @receiving_stocks = ReceivingStock.where("name LIKE ?", "%#{search_word}%" )
+     else
+      @receiving_stocks = ReceivingStock.all
+     end
     #ソート機能 
      if params[:latest]
-        @receiving_stocks = ReceivingStock.latest
+       @receiving_stocks = @receiving_stocks.latest.page(params[:page])
      elsif params[:old]
-       @receiving_stocks = ReceivingStock.old
+       @receiving_stocks = @receiving_stocks.old.page(params[:page])
      elsif params[:name]
-       @receiving_stocks = ReceivingStock.order_name
+       @receiving_stocks = @receiving_stocks.order_name.page(params[:page])
      else
-       @receiving_stocks = ReceivingStock.page(params[:page])
+       @receiving_stocks = @receiving_stocks.page(params[:page])
      end
-     
-     
      
   end
 
@@ -63,6 +68,8 @@ class Public::ReceivingStocksController < ApplicationController
   end
 
   def search
+    search_word = params[:word]
+    @receiving_stock = ReceivingStock.where("name LIKE ?", "%#(search_word)%" )
   end
   
   # 在庫数を減らすメソッド
