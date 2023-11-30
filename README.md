@@ -60,7 +60,7 @@ https://docs.google.com/spreadsheets/d/13ujGMsTB8pvxODIKVDjast_c0_-9t0HznigYPRlK
  しかし1から自分で構想し作成したのは非常にいい経験になりました。
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,SCSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
