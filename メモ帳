@@ -1,9 +1,11 @@
 EC2
 ssh -i ~/.ssh/practice-aws.pem ec2-user@パブリックIPアドレス
 
+my-vpc
+  ssh -i ~/.ssh/my-vpc-public-01.pem ec2-user@13.231.224.231
 アプリケーションサーバー（Puma）を停止する
 kill $(cat tmp/pids/puma.pid)
-
+scp -i  ~/.ssh/my-vpc-public-01.pem ~/.ssh/my-vpc-private-01.pem ec2-user@54.168.90.69:.ssh/my-vpc-private-01.pem
 起動
 rails s -e production
 

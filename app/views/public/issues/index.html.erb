@@ -7,10 +7,10 @@
     |<%= link_to '名前順',   issues_path(star_count: "true") %>
     |<%= link_to '戻る',  issues_path %>
     <div>
-      <%= form_with url: issues_path, method: :get do |f| %>
-       <%= f.text_field :word, value: params[:word] ,placeholder: "検索したい商品を入力してください。" %>
-       <%= f.submit "検索",class: "button button__sm" %>
-      <% end %>
+      <%#= form_with url: issues_path, method: :get do |f| %>
+       <%#= f.text_field :word, value: params[:word] ,placeholder: "検索したい商品を入力してください。" %>
+       <%#= f.submit "検索",class: "button button__sm" %>
+      <%# end %>
     </div>
   <table>
     <tr>
