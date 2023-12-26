@@ -8,6 +8,9 @@ my-vpc
 kill $(cat tmp/pids/puma.pid)
 scp -i  ~/.ssh/my-vpc-public-01.pem ~/.ssh/my-vpc-private-01.pem ec2-user@54.168.90.69:.ssh/my-vpc-private-01.pem
 
+コンパイル
+bundle exec rails assets:precompile RAILS_ENV=production
+
 起動
 rails s -e production
 
