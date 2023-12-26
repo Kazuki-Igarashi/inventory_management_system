@@ -3,16 +3,26 @@ class Public::IssuesController < ApplicationController
   # before_action :is_matching_login_user
   
   def index
+    # 検索機能
+     search_word = params[:word]
+     if search_word
+      @receiving_stocks = ReceivingStock.where("name LIKE ?", "%#{search_word}%" )
+      # pp "receiving_data--------------#{@receiving_stocks.inspect}"
+     else
+      @receiving_stocks = ReceivingStock.all
+     end
     # ソート機能
-    if params[:latest]
-        @receiving_stocks = ReceivingStock.latest
-    elsif params[:old]
-       @receiving_stocks = ReceivingStock.old
-    elsif params[:name]
-       @receiving_stocks = ReceivingStock.name
-    else
-       @receiving_stocks = ReceivingStock.where(is_sales: true)
-    end
+     if params[:latest]
+       @receiving_stocks = @receiving_stocks.where(is_sales: true).latest.page(params[:page])
+     elsif params[:old]
+       @receiving_stocks = @receiving_stocks.where(is_sales: true).old.page(params[:page])
+     elsif params[:name]
+       @receiving_stocks = @receiving_stocks.order_name.page(params[:page])
+     else
+       @receiving_stocks = @receiving_stocks.where(is_sales: true).page(params[:page])
+     end
+    #else
+       #@receiving_stocks = ReceivingStock.where(is_sales: true)
   end
 
   def new

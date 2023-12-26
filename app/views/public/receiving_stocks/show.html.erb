@@ -2,9 +2,13 @@
 <div class='receiving_stock'>
   <h1>商品詳細</h1>
 
-    <div>
-     <%= image_tag @receiving_stock.image, size: "200x200" %>
-    </div>
+  <div>
+    <% if @receiving_stock.image.attached? %>
+      <%= image_tag @receiving_stock.image, class: "show-image" %>
+    <% else %>
+      <%= image_tag 'no_image', class: "show-image" %>
+    <% end %>
+  </div>
 
   <div class='col-md-6'>
     <table class="table">

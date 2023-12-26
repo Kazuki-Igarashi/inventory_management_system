@@ -60,9 +60,8 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 50000,
       conpany_name: "株式会社A社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kikai1.jpg")), filename: "kikai1.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/kikai1.jpg")), filename: "kikai1.jpg")
 
 receiving_stock = ReceivingStock.create!(
       name: "電動のこぎり",
@@ -72,9 +71,9 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 100000,
       conpany_name: "株式会社B社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kikai3.jpg")), filename: "kikai3.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/kikai3.jpg")), filename: "kikai3.jpg")
+
 
 receiving_stock = ReceivingStock.create!(
       name: "工具一式",
@@ -84,9 +83,8 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 15000,
       conpany_name: "株式会社C社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kougu2.jpg")), filename: "kougu2.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/kougu2.jpg")), filename: "kougu2.jpg")
 
 receiving_stock = ReceivingStock.create!(
       name: "手動万力",
@@ -96,10 +94,9 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 50000,
       conpany_name: "株式会社C社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kougu4.jpg")), filename: "kougu4.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/kougu4.jpg")), filename: "kougu4.jpg")
-
+    
 receiving_stock = ReceivingStock.create!(
       name: "精密用切削部品",
       explanation: "切削用の部品です。摩耗するため交換が可能です。",
@@ -108,9 +105,8 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 20000,
       conpany_name: "株式会社D社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/buhin1.jpg")), filename: "buhin1.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/buhin1.jpg")), filename: "buhin1.jpg")
 
 receiving_stock = ReceivingStock.create!(
       name: "精密用切削部品",
@@ -120,10 +116,8 @@ receiving_stock = ReceivingStock.create!(
       purchase_price: 25000,
       conpany_name: "株式会社D社",
       # is_sales: true
-      # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/buhin6.jpg")), filename: "buhin6.jpg")
     )
-receiving_stock.image.attach(io: File.open(Rails.root.join("app/assets/images/buhin6.jpg")), filename: "buhin6.jpg")
-
 
  10.times do |n|
     Address.create!(

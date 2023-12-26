@@ -7,10 +7,10 @@
     |<%= link_to '名前順',   issues_path(star_count: "true") %>
     |<%= link_to '戻る',  issues_path %>
     <div>
-      <%#= form_with url: issues_path, method: :get do |f| %>
-       <%#= f.text_field :word, value: params[:word] ,placeholder: "検索したい商品を入力してください。" %>
-       <%#= f.submit "検索",class: "button button__sm" %>
-      <%# end %>
+      <%= form_with url: issues_path, method: :get do |f| %>
+       <%= f.text_field :word, value: params[:word] ,placeholder: "検索したい商品を入力してください。" %>
+       <%= f.submit "検索",class: "button button__sm" %>
+      <% end %>
     </div>
   <table>
     <tr>
@@ -29,7 +29,11 @@
         <td><%= receiving_stock.id %></td>  
         <td>
           <%=link_to issue_path(receiving_stock.id) do %>
-            <%= image_tag receiving_stock.image, size: "100x100" %>
+            <% if receiving_stock.image.attached? %>
+                <%= image_tag receiving_stock.image, class: "index-image" %>
+              <% else %>
+                <%= image_tag 'no_image', class: "index-image" %>
+              <% end %>
           <% end %>
         </td>
         <td>
@@ -51,6 +55,7 @@
         </td>
       </tr>
     <% end %>
+    <div class="paginate"><%= paginate @receiving_stocks %></div>
   </table>
 </div>
 

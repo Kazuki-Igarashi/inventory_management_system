@@ -1,34 +1,33 @@
----
 ja:
   activerecord:
     attributes:
-
-        # ここにモデル名とカラム名を入力するとエラーメッセージが和訳される
-        # genre:
-        #   name: "ジャンル名"
-        # receiving_stocks:
-        #   name: "商品名"
-        #   genre: "ジャンル"
-        #   conpany_name: "会社名"
-        #   purchase_price: "入庫値段"
-        #   explanation: "商品説明"
-        #   stock: "入庫数"
-          
-        # issues:
-        # selling_price: "出庫価格"
-        #   stock: "出庫数"
-        #   sales_company_name: "出荷会社"
+      # ここにモデル名とカラム名を入力するとエラーメッセージが和訳される
+      genre:
+        name: "ジャンル名"
+      receiving_stock:
+        name: '商品名'
+        image: '画像'
+        genre: 'ジャンル'
+        conpany_name: '会社名'
+        purchase_price: '入庫値段'
+        explanation: '商品説明'
+        stock: '入庫数'
+      issue:
+        selling_price: "出庫価格"
+        stock: "出庫数"
+        sales_company_name: "出荷会社"
          
 
 
 
-  activerecord:
+  # activerecord:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        
   date:
     abbr_day_names:
     - 日

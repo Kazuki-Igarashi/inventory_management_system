@@ -32,7 +32,11 @@
           <td><%= receiving_stock.id %></td>  
           <td>
             <%=link_to receiving_stock_path(receiving_stock.id) do %>
-              <%= image_tag receiving_stock.image, size: "100x100" %>
+              <% if receiving_stock.image.attached? %>
+                <%= image_tag receiving_stock.image, class: "index-image" %>
+              <% else %>
+                <%= image_tag 'no_image', class: "index-image" %>
+              <% end %>
             <% end %>
           </td>
           <td>

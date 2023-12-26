@@ -1,13 +1,12 @@
-<h4>ジャンル編集</h4>
-
-<%= form_with model: @genre, url: genre_path(@genre.id), method: :patch do |f| %>
-
-<table>
-    <tr>
-      <td><%= f.label :name, "ジャンル名" %></td><td><%= f.text_field :name %></td>
-      <td><%= f.submit '変更内容を保存する' %></td>
-    </tr>
-</table>
-<% end %>
-
-<%= link_to "戻る", genres_path %>
+<div class="genre">
+  <h4>ジャンル編集</h4>
+  
+  <%= form_with model: @genre, url: genre_path(@genre.id), method: :patch do |f| %>
+  
+        <div class="genre__name"><%= f.label :name, "ジャンル名" %></div>
+        <div class="genre__name"><%= f.text_field :name %></div>
+        <div class="genre__name"><%= f.submit '変更内容を保存する', class: "button button__sm" %></div>
+  <% end %>
+  
+  <%= link_to "戻る", genres_path, class: "button button__sm" %>
+</div>

@@ -3,7 +3,11 @@
   <h1>商品詳細</h1>
   <%= render 'layouts/error', model: @issue %>
     <%= form_with model: @issue, method: :post, local: true do |f| %>
-      <%= image_tag @receiving_stock.image, size: "200x200" %>
+      <% if @receiving_stock.image.attached? %>
+        <%= image_tag @receiving_stock.image, class: "show-image" %>
+      <% else %>
+        <%= image_tag 'no_image', class: "show-image" %>
+      <% end %>
       
       <div><%= @receiving_stock.name %></div>
       <%= f.hidden_field :receiving_stock_id %>
@@ -36,6 +40,6 @@
       </div>
     <% end %>
     <div class='issue__index'>
-      <%= link_to "一覧ページへ戻る", receiving_stocks_path, class: "button button__sm" %>
+      <%= link_to "一覧ページへ戻る", issues_path, class: "button button__sm" %>
     </div>
 </div>

@@ -1,7 +1,8 @@
-<div class="receiving_stock" >
+<div class="receiving_stock">
   <h3>商品新規登録</h3>
     <%= render 'layouts/error', model: @receiving_stock %> 
     <%= form_with model: @receiving_stock, method: :post do |f| %>
+    
       <div>商品画像</div>
       <%= f.file_field :image, accept: "image/*" %>
       
@@ -23,9 +24,6 @@
       
       <div>入荷会社</div>
       <%= f.text_area :conpany_name %>
-      <!--<div class="receiving_stock__select">-->
-      <!--  <%#= f.collection_select :company_name, Company.all, :name, :name, class: "button button__sm" %>-->
-      <!--</div>-->
       
       <div>
         <div>販売ステータス</div>
