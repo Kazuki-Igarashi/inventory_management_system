@@ -30,6 +30,8 @@ tail -f log/production.log
 
  mysql -u root -p -h rds-mysql-server.cjfpf6willmg.ap-northeast-1.rds.amazonaws.com
  
+  rails console production
+ 
  production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
