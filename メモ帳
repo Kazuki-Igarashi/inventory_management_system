@@ -1,7 +1,7 @@
 EC2
 ssh -i ~/.ssh/practice-aws.pem ec2-user@パブリックIPアドレス
 ssh -i ~/.ssh/PF-piblic-01.pem ec2-user@52.195.18.65
-ssh -i ~/.ssh/practice-aws1.pem ec2-user@54.65.246.132
+ssh -i ~/.ssh/practice-aws2.pem ec2-user@18.182.188.125
 
 mysql
 mysql -u root -p -h rds-mysql-server1.cjfpf6willmg.ap-northeast-1.rds.amazonaws.com
