@@ -1,9 +1,14 @@
 EC2
 ssh -i ~/.ssh/practice-aws.pem ec2-user@パブリックIPアドレス
 ssh -i ~/.ssh/PF-piblic-01.pem ec2-user@52.195.18.65
-ssh -i ~/.ssh/practice-aws2.pem ec2-user@パブリックIPアドレス
+ssh -i ~/.ssh/practice-aws2.pem ec2-user@18.182.188.125
+
+mysql
+mysql -u root -p -h rds-mysql-server1.cjfpf6willmg.ap-northeast-1.rds.amazonaws.com
+
 my-vpc
   ssh -i ~/.ssh/my-vpc-public-01.pem ec2-user@13.231.224.231
+  ssh -i ~/.ssh/PF_EC2.pem ec2-user@57.181.172.174
 
 アプリケーションサーバー（Puma）を停止する
 kill $(cat tmp/pids/puma.pid)
@@ -15,7 +20,6 @@ bundle exec rails assets:precompile RAILS_ENV=production
 起動
 rails s -e production
 
-[ec2-user@ip-xx-xx-xx-xx ~]$ cd GitHubのリポジトリ名
 
 本番環境でデータベースをリセットしたい場合
 
@@ -30,3 +34,18 @@ less log/production.log
 tail -f log/production.log 
 
  mysql -u root -p -h rds-mysql-server.cjfpf6willmg.ap-northeast-1.rds.amazonaws.com
+ 
+  rails console production
+ 
+ production:
+  <<: *default
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  
+ 
