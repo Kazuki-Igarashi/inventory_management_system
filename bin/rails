@@ -5,5 +5,5 @@ require_relative "../config/boot"
 require "rails/commands"
 
 production
-  secret_key_base "fac40aa924ccb78a3e376dad25ae7d79d19a10619af94dbc072d9c5626bb4e67cc75f95f6396ffdd6d8c987adcba29da16598cae04887fa605bdb389d51d93bd"
+  secret_key_base "d204706b607f0754126b5872eb9a2c50d448c875fc4cabb18d5de867dfc3e18a730eff0da32423c0657083484eafdb6adad53e8cf9d0a61bb4a143fd6dd867e9"
 
