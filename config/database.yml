@@ -26,7 +26,7 @@ production:
 
 production:
   <<: *default
-  database: inventory_management_system
+  database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
