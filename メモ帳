@@ -1,6 +1,7 @@
 EC2
 ssh -i ~/.ssh/practice-aws2.pem ec2-user@パブリックIPアドレス
 ssh -i ~/.ssh/PF-piblic-01.pem ec2-user@52.195.18.65
+ssh -i ~/.ssh/practice-aws2.pem ec2-user@18.182.188.125
 my-vpc
   ssh -i ~/.ssh/my-vpc-public-01.pem ec2-user@13.231.224.231
 
