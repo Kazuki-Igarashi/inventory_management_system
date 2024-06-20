@@ -1,5 +1,9 @@
-#!/usr/bin/env ruby
+!/usr/bin/env ruby
 load File.expand_path("spring", __dir__)
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative "../config/boot"
 require "rails/commands"
+
+production:
+    secret_key_base: "b888cbc4556739d4aa6a4fa73d7b8b643d426749ee7be3cc909c6b0cbbab88725d800294f648597f6691a32eedfdee2c82e6ec5d44b145a372a43ea5e9d8da7a"
+
